@@ -31,6 +31,15 @@ module.exports = {
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
         'simple-import-sort/sort': 'error',
+        // FIXME:
+        // @emotion/core の提供する jsxFactory を使用しても
+        // no-unused-var ルールに引っかからないように適切なオプションを設定したい
+        '@typescript-eslint/no-unused-vars': [
+            'error',
+            {
+                varsIgnorePattern: '^jsx$', // jsx という変数名を一律に無視させている
+            },
+        ],
     },
     settings: {
         react: {
