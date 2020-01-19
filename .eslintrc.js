@@ -9,6 +9,7 @@ module.exports = {
         'prettier/@typescript-eslint',
         'plugin:prettier/recommended',
         'plugin:react/recommended',
+        'plugin:import/typescript',
     ],
     globals: {
         Atomics: 'readonly',
@@ -24,12 +25,13 @@ module.exports = {
         project: './tsconfig.json',
         useJSXTextNode: true,
     },
-    plugins: ['react', '@typescript-eslint', 'prettier'],
+    plugins: ['react', '@typescript-eslint', 'prettier', 'import'],
     rules: {
         indent: ['error', 4],
         'linebreak-style': ['error', 'unix'],
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
+        'import/order': ['error', { alphabetize: { order: 'asc', caseInsensitive: false } }],
     },
     settings: {
         react: {
