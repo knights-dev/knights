@@ -9,7 +9,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export default {
-    input: 'src/index.tsx',
+    input: 'src/bootstrap.tsx',
     output: {
         file: 'dist/bundle.js',
         format: 'esm',
