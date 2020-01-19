@@ -4,6 +4,12 @@
 
 Functional visual programming environment
 
+## Install dependencies
+
+```bash
+yarn
+```
+
 ## Launch dev server
 
 ```bash
