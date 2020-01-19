@@ -1,4 +1,4 @@
-import Fleur, { reducerStore, actions, action, operations, selector } from '@fleur/fleur';
+import Fleur, { action, actions, operations, reducerStore, selector } from '@fleur/fleur';
 import { FleurContext, useFleurContext, useStore } from '@fleur/react';
 import React, { useCallback } from 'react';
 import ReactDOM from 'react-dom';
