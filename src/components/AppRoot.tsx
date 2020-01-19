@@ -1,3 +1,5 @@
+/* @jsx jsx */
+import { jsx } from '@emotion/core';
 import { useFleurContext, useStore } from '@fleur/react';
 import React, { useCallback } from 'react';
 
@@ -20,10 +22,10 @@ export const AppRoot: React.FC = () => {
     });
 
     return (
-        <>
-            <p>Count: {count}</p>
+        <React.Fragment>
+            <p css={{ color: '#008888' }}>Count: {count}</p>
             <button onClick={inc}>inc</button>
             <button onClick={dec}>dec</button>
-        </>
+        </React.Fragment>
     );
 };
