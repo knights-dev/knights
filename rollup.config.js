@@ -4,6 +4,9 @@ import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import { terser } from 'rollup-plugin-terser';
 
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 export default {
     input: 'src/index.tsx',
     output: {
@@ -13,7 +16,13 @@ export default {
     },
     plugins: [
         typescript(),
-        commonjs(),
+        commonjs({
+            include: 'node_modules/**',
+            namedExports: {
+                react: Object.keys(React),
+                'react-dom': Object.keys(ReactDOM),
+            },
+        }),
         resolve(),
         replace({
             'process.env.NODE_ENV': JSON.stringify('production'),
