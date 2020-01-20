@@ -1,8 +1,5 @@
 {
     "private": true,
-    "scripts": {
-        "build-interp": "wasm-pack build --scope knights-dev --out-dir ../interpreter ./workspaces/interp-rs"
-    },
     "workspaces": [
         "workspaces/*"
     ]

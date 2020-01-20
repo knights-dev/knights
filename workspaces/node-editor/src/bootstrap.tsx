@@ -19,3 +19,5 @@ ReactDOM.render(
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     document.getElementById('app')!
 );
+
+import('../wasm/interpreter').then(module => module.greet('Rust'));

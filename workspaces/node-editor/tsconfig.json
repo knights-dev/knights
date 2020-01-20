@@ -1,73 +1,30 @@
 {
   "compilerOptions": {
-    /* 基本オプション */
-    // "incremental": true,                    /* Enable incremental compilation */
-    "target": "es2015",                           /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. */
-    "module": "esnext",                      /* モジュール コード生成を指定します: 'none'、'commonjs'、'amd'、'system'、'umd'、'es2015'、'ESNext'。 */
+    "target": "es2015",
+    "module": "esnext",
     "lib": [
       "dom",
       "es2015"
-    ],                              /* コンパイルに含めるライブラリ ファイルを指定します。 */
-    // "allowJs": true,                        /* javascript ファイルのコンパイルを許可します。 */
-    // "checkJs": true,                        /* .js ファイルのエラーを報告します。 */
-    "jsx": "react",                      /* JSX コード生成を指定します: 'preserve'、'react-native'、'react'。 */
-    // "declaration": true,                    /* 対応する '.d.ts' ファイルを生成します。 */
-    // "declarationMap": true,                 /* 対応する各 '.d.ts' ファイルにソースマップを生成します。 */
-    "sourceMap": true,                      /* 対応する '.map' ファイルを生成します。 */
-    // "outFile": "./",                        /* 出力を連結して 1 つのファイルを生成します。 */
-    "outDir": "./dist",                         /* ディレクトリへ出力構造をリダイレクトします。 */
-    // "rootDir": "./",                        /* 入力ファイルのルート ディレクトリを指定します。--outDir とともに、出力ディレクトリ構造の制御に使用します。 */
-    // "composite": true,                      /* プロジェクトのコンパイルを有効にします */
-    // "tsBuildInfoFile": "./",                /* Specify file to store incremental compilation information */
-    // "removeComments": true,                 /* コメントを出力しないでください。 */
-    // "noEmit": true,                         /* 出力しないでください。 */
-    // "importHelpers": true,                  /* 生成ヘルパーを 'tslib' からインポートします。 */
-    // "downlevelIteration": true,             /* 'for-of' の iterable、spread、'ES5' や 'ES3' をターゲットとする場合は destructuring に対してフル サポートを提供します。 */
-    // "isolatedModules": true,                /* 個々のモジュールとして各ファイルをトランスパイルします ('ts.transpileModule' に類似)。 */
+    ],
+    "jsx": "react",
+    "sourceMap": true,
+    "outDir": "./dist",
 
     /* 詳細オプション */
-    "locale": "ja",                            /* ユーザーにメッセージを表示するときに使用するロケール (例: 'en-us') */
-    "forceConsistentCasingInFileNames": true,  /* 同じファイルへの大文字小文字の異なる参照を許可しない。 */
+    "locale": "ja",
+    "forceConsistentCasingInFileNames": true,
 
     /* Strict 型チェック オプション */
-    "strict": true,                            /* 厳密な型チェックのオプションをすべて有効にします。 */
-    // "noImplicitAny": true,                  /* 暗黙的な 'any' 型を含む式と宣言に関するエラーを発生させます。 */
-    // "strictNullChecks": true,               /* 厳格な null チェックを有効にします。 */
-    // "strictFunctionTypes": true,            /* 関数の型の厳密なチェックを有効にします。 */
-    // "strictBindCallApply": true,            /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
-    // "strictPropertyInitialization": true,   /* クラス内のプロパティの初期化の厳密なチェックを有効にします。 */
-    // "noImplicitThis": true,                 /* 暗黙的な 'any' 型を持つ 'this' 式でエラーが発生します。 */
-    // "alwaysStrict": true,                   /* 厳格モードで解析してソース ファイルごとに "use strict" を生成します。 */
+    "strict": true,
 
     /* 追加のチェック */
-    "noUnusedLocals": true,                 /* 使用されていないローカルに関するエラーを報告します。 */
-    "noUnusedParameters": true,             /* 使用されていないパラメーターに関するエラーを報告します。 */
-    "noImplicitReturns": true,              /* 関数の一部のコード パスが値を返さない場合にエラーを報告します。 */
-    "noFallthroughCasesInSwitch": true,     /* switch ステートメントに case のフォールスルーがある場合にエラーを報告します。 */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
 
     /* モジュール解決のオプション */
-    "moduleResolution": "node",             /* モジュールの解決方法を指定します: 'node' (Node.js) または 'classic' (TypeScript pre-1.6)。 */
-    // "baseUrl": "./",                        /* 相対モジュール名を解決するためのベース ディレクトリ。 */
-    // "paths": {},                            /* 'baseUrl' の相対的な場所を検索するためにインポートを再マップする一連のエントリ。 */
-    // "rootDirs": [],                         /* 結合されたコンテンツがランタイムでのプロジェクトの構成を表すルート フォルダーの一覧。 */
-    // "typeRoots": [],                        /* 含める型定義の元のフォルダーの一覧。 */
-    // "types": [],                            /* コンパイルに含む型宣言ファイル。 */
-    // "allowSyntheticDefaultImports": true,   /* 既定のエクスポートがないモジュールからの既定のインポートを許可します。これは、型チェックのみのため、コード生成には影響を与えません。 */
-    "esModuleInterop": true                    /* すべてのインポートの名前空間オブジェクトを作成して、CommonJS と ES モジュール間の生成の相互運用性を有効にします。'allowSyntheticDefaultImports' を暗黙のうちに表します。 */
-    // "preserveSymlinks": true,               /* symlink の実際のパスを解決しません。 */
-    // "allowUmdGlobalAccess": true,           /* Allow accessing UMD globals from modules. */
-
-    /* ソース マップ オプション */
-    // "sourceRoot": "",                       /* デバッガーがソースの場所の代わりに TypeScript ファイルを検索する必要のある場所を指定します。 */
-    // "mapRoot": "",                          /* デバッガーが、生成された場所の代わりにマップ ファイルを検索する必要のある場所を指定します。 */
-    // "inlineSourceMap": true,                /* 個々のファイルを持つ代わりに、複数のソース マップを含む単一ファイルを生成します。 */
-    // "inlineSources": true,                  /* 単一ファイル内でソースマップと共にソースを生成します。'--inlineSourceMap' または '--sourceMap' を設定する必要があります。 */
-
-    /* 試験的なオプション */
-    // "experimentalDecorators": true,         /* ES7 デコレーター用の実験的なサポートを有効にします。 */
-    // "emitDecoratorMetadata": true,          /* デコレーター用の型メタデータを発行するための実験的なサポートを有効にします。 */
-  },
-  "include": [
-    "src"
-  ]
+    "moduleResolution": "node",
+    "esModuleInterop": true
+  }
 }

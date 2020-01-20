@@ -1,5 +1,1 @@
 node_modules
-dist
-
-# rollup-plugin-visualizer
-stats.html
