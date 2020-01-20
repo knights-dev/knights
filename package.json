@@ -1,49 +1,6 @@
 {
-  "name": "knights",
-  "version": "0.1.0",
-  "scripts": {
-    "build": "rollup -c",
-    "build:watch": "rollup -c --watch",
-    "serve": "static",
-    "start": "npm-run-all --parallel build:watch serve",
-    "lint": "eslint ./src/* --ext .ts,.tsx",
-    "format": "eslint --fix ./src/* --ext .ts,.tsx"
-  },
-  "description": "functional visual programming environment",
-  "repository": "git@github.com:0918nobita/knights.git",
-  "author": "0918nobita",
-  "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "@emotion/core": "^10.0.27",
-    "@fleur/fleur": "^1.4.0",
-    "@fleur/react": "^3.2.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "@rollup/plugin-commonjs": "^11.0.1",
-    "@rollup/plugin-node-resolve": "^7.0.0",
-    "@rollup/plugin-replace": "^2.3.0",
-    "@types/react": "^16.9.17",
-    "@types/react-dom": "^16.9.4",
-    "@typescript-eslint/eslint-plugin": "^2.16.0",
-    "@typescript-eslint/parser": "^2.16.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.9.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.18.0",
-    "eslint-plugin-simple-import-sort": "^5.0.0",
-    "node-static": "^0.7.11",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^1.19.1",
-    "rollup": "^1.29.0",
-    "rollup-plugin-terser": "^5.2.0",
-    "rollup-plugin-typescript2": "^0.25.3",
-    "rollup-plugin-visualizer": "^3.3.1",
-    "terser": "^4.6.3",
-    "typescript": "^3.7.5"
-  }
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ]
 }
