@@ -1,5 +1,12 @@
 {
     "private": true,
+    "scripts": {
+        "build:interp": "cd \"workspaces/interp-rs\" && cargo build",
+        "build:rs": "cd \"./workspaces/editor/\" && yarn build:rs",
+        "build:js": "cd \"./workspaces/editor/\" && yarn build:js",
+        "build": "yarn build:interp && yarn build:rs && yarn build:js ",
+        "serve": "cd \"./workspaces/editor/\" && yarn serve"
+    },
     "workspaces": [
         "workspaces/*"
     ]
