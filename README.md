@@ -30,3 +30,10 @@ cd workspaces/editor
 yarn build:rs
 yarn build:js
 ```
+
+## Serve `editor`
+
+```bash
+cd workspaces/editor
+yarn serve
+```
