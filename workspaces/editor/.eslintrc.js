@@ -30,7 +30,10 @@ module.exports = {
         'linebreak-style': ['error', 'unix'],
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
+
         'simple-import-sort/sort': 'error',
+
+        '@typescript-eslint/explicit-function-return-type': 'error',
         // FIXME:
         // @emotion/core の提供する jsxFactory を使用しても
         // no-unused-var ルールに引っかからないように適切なオプションを設定したい
