@@ -20,4 +20,4 @@ ReactDOM.render(
     document.getElementById('app')!
 );
 
-import('../wasm/interpreter').then(module => module.greet('Rust'));
+import('../../interp-rs/pkg').then(module => module.greet('Rust'));
