@@ -4,7 +4,7 @@
   "scripts": {
     "build:rs": "wasm-bindgen ../interp-rs/target/wasm32-unknown-unknown/debug/interpreter.wasm --out-dir ./wasm",
     "build:js": "webpack",
-    "serve": "webpack-dev-server",
+    "serve": "webpack-dev-server --open",
     "lint": "eslint ./src/* --ext .ts,.tsx",
     "format": "eslint --fix ./src/* --ext .ts,.tsx"
   },
