@@ -5,6 +5,7 @@ import React, { useCallback } from 'react';
 
 import { counterOps } from '../domains/counter/operations';
 import { selectCount } from '../domains/counter/selectors';
+import { Editor } from './Editor' 
 
 export const AppRoot: React.FC = () => {
     const context = useFleurContext();
@@ -26,6 +27,7 @@ export const AppRoot: React.FC = () => {
             <p css={{ color: '#008888' }}>Count: {count}</p>
             <button onClick={inc}>inc</button>
             <button onClick={dec}>dec</button>
+            <Editor />
         </React.Fragment>
     );
 };
