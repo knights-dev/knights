@@ -1,5 +1,9 @@
 {
     "private": true,
+    "scripts": {
+        "build": "cd \"./workspaces/editor/\" && yarn build",
+        "serve": "cd \"./workspaces/editor/\" && yarn serve"
+    },
     "workspaces": [
         "workspaces/*"
     ]
