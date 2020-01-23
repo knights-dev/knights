@@ -1,3 +1,5 @@
+import './scss/editor.scss';
+
 import Fleur from '@fleur/fleur';
 import { FleurContext } from '@fleur/react';
 import React from 'react';
@@ -5,7 +7,6 @@ import ReactDOM from 'react-dom';
 
 import { AppRoot } from './components/AppRoot';
 import { store } from './domains/counter/store';
-import './scss/editor.scss';
 
 const app = new Fleur({
     stores: [store],
