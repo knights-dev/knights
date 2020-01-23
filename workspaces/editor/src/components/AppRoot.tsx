@@ -5,7 +5,7 @@ import React, { useCallback } from 'react';
 
 import { counterOps } from '../domains/counter/operations';
 import { selectCount } from '../domains/counter/selectors';
-import { Editor } from './Editor' 
+import { Editor } from './Editor';
 
 export const AppRoot: React.FC = () => {
     const context = useFleurContext();
