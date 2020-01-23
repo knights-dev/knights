@@ -5,18 +5,23 @@ import React from 'react';
 type Props = {
     x: number;
     y: number;
+
     text?: string;
+    fillColor?: string;
+    strokeColor?: string;
+    strokeWidth?: number;
+    radius?: number;
 };
 
-export const ValueNode: React.FC<Props> = props => {
-    const radius = 20;
-
-    const fillColor = 'transparent';
-    const strokeColor = 'red';
-    const strokeWidth = 2;
-    const x = props.x,
-        y = props.y;
-    const text = props.text == null ? '' : props.text;
+export const ValueNode: React.FC<Props> = ({
+    x,
+    y,
+    text = '',
+    radius = 20,
+    fillColor = 'transparent',
+    strokeColor = 'red',
+    strokeWidth = 2,
+}) => {
     /*
     const nodeProp = {
         inputPoint:[x - radius , y],

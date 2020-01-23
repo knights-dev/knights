@@ -5,17 +5,23 @@ import React from 'react';
 type Props = {
     x: number;
     y: number;
+
+    fillColor?: string;
+    strokeColor?: string;
+    strokeWidth?: number;
+    width?: number;
+    height?: number;
 };
 
-export const PatternNode: React.FC<Props> = props => {
-    const height = 30;
-    const width = 60;
-
-    const fillColor = 'transparent';
-    const strokeColor = 'red';
-    const strokeWidth = 2;
-    const x = props.x,
-        y = props.y;
+export const PatternNode: React.FC<Props> = ({
+    x,
+    y,
+    height = 30,
+    width = 60,
+    fillColor = 'transparent',
+    strokeColor = 'red',
+    strokeWidth = 2,
+}) => {
     const points = [
         [x - width / 2, y - height / 2],
         [x - width / 2, y + height / 2],

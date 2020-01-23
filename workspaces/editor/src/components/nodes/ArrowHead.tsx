@@ -6,20 +6,27 @@ type Props = {
     hx: number;
     hy: number;
     dir: number;
+
+    strokeColor?: string;
+    strokeWidth?: number;
+    triangleHeight?: number;
+    triangleWidth?: number;
 };
 
-export const ArrowHead: React.FC<Props> = props => {
-    const strokeColor = 'black';
-    const strokeWidth = 2;
-    const triangleHeight = 10;
-    const triangleWidth = 10;
-    const hx = props.hx,
-        hy = props.hy,
-        dir = (props.dir * Math.PI) / 180;
-    const tx = Math.cos(dir) * triangleHeight,
-        ty = Math.sin(dir) * triangleHeight,
-        nx = (Math.sin(dir) * triangleWidth) / 2,
-        ny = (-Math.cos(dir) * triangleWidth) / 2;
+export const ArrowHead: React.FC<Props> = ({
+    hx,
+    hy,
+    dir,
+    triangleHeight = 10,
+    triangleWidth = 10,
+    strokeColor = 'black',
+    strokeWidth = 2,
+}) => {
+    const dirRadian = (dir * Math.PI) / 180;
+    const tx = Math.cos(dirRadian) * triangleHeight,
+        ty = Math.sin(dirRadian) * triangleHeight,
+        nx = (Math.sin(dirRadian) * triangleWidth) / 2,
+        ny = (-Math.cos(dirRadian) * triangleWidth) / 2;
 
     const points = [['M', hx, hy], ['l', -tx - nx, -ty - ny], ['l', 2 * nx, 2 * ny], ['Z']];
     const pathDef = points.map(p => p.join(' ')).join(' ');

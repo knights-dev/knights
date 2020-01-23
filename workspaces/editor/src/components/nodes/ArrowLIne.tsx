@@ -7,14 +7,21 @@ import { ArrowHead } from './ArrowHead';
 type Props = {
     source: [number, number];
     dest: [number, number];
+
+    baseRadius?: number;
+    strokeColor?: string;
+    strokeWidth?: number;
 };
 
-export const ArrowLine: React.FC<Props> = props => {
-    const strokeColor = 'black';
-    const strokeWidth = 2;
-    const baseRadius = 15;
-    const [sx, sy] = props.source,
-        [dx, dy] = props.dest;
+export const ArrowLine: React.FC<Props> = ({
+    source,
+    dest,
+    baseRadius = 15,
+    strokeColor = 'black',
+    strokeWidth = 2,
+}) => {
+    const [sx, sy] = source,
+        [dx, dy] = dest;
 
     const xdir = Math.sign(dx - sx),
         ydir = Math.sign(dy - sy);
