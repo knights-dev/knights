@@ -1,37 +1,40 @@
 /* @jsx jsx */
 import { jsx } from '@emotion/core';
 import React from 'react';
-import {ArrowHead} from './ArrowHead'
+
+import { ArrowHead } from './ArrowHead';
 
 type Props = {
-    source:[number,number]
-    dest:[number,number]
-}
+    source: [number, number];
+    dest: [number, number];
+};
 
 export const ArrowLine: React.FC<Props> = props => {
-    const strokeColor = "black";
+    const strokeColor = 'black';
     const strokeWidth = 2;
     const baseRadius = 15;
-    const [sx,sy] = props.source, [dx,dy] = props.dest;
+    const [sx, sy] = props.source,
+        [dx, dy] = props.dest;
 
-    const xdir = Math.sign(dx - sx) , ydir = Math.sign(dy - sy)
-    const radius = Math.min( baseRadius , Math.abs(dx - sx) )
-    const headDir = ydir > 0 ? 90 : 270
+    const xdir = Math.sign(dx - sx),
+        ydir = Math.sign(dy - sy);
+    const radius = Math.min(baseRadius, Math.abs(dx - sx));
+    const headDir = ydir > 0 ? 90 : 270;
 
-    const cx = dx - radius * xdir
-    const cy = sy + radius * ydir
+    const cx = dx - radius * xdir;
+    const cy = sy + radius * ydir;
     const points = [
-        ["M",sx,sy],
-        ["L",cx,sy],
-        ["A",radius,radius,0,0,xdir * ydir > 0 ? 1 : 0,dx,cy],
-        ["L",dx,dy],
-    ]
-    const pathDef = points.map( p => p.join(' ') ).join(" ");
+        ['M', sx, sy],
+        ['L', cx, sy],
+        ['A', radius, radius, 0, 0, xdir * ydir > 0 ? 1 : 0, dx, cy],
+        ['L', dx, dy],
+    ];
+    const pathDef = points.map(p => p.join(' ')).join(' ');
 
     return (
         <React.Fragment>
-            <path d={pathDef} fill="none" stroke={strokeColor} strokeWidth={strokeWidth}/>
-            <ArrowHead hx={dx} hy={dy} dir={headDir}/>
+            <path d={pathDef} fill="none" stroke={strokeColor} strokeWidth={strokeWidth} />
+            <ArrowHead hx={dx} hy={dy} dir={headDir} />
         </React.Fragment>
     );
 };
