@@ -1,6 +1,8 @@
 {
     "private": true,
     "scripts": {
+        "format": "cd \"./workspaces/editor/\" && yarn format",
+        "lint": "cd \"./workspaces/editor/\" && yarn lint",
         "build": "cd \"./workspaces/editor/\" && yarn build",
         "serve": "cd \"./workspaces/editor/\" && yarn serve"
     },

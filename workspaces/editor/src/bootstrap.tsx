@@ -1,3 +1,5 @@
+import './scss/editor.scss';
+
 import Fleur from '@fleur/fleur';
 import { FleurContext } from '@fleur/react';
 import React from 'react';
