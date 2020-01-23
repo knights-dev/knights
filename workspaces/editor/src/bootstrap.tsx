@@ -22,4 +22,4 @@ ReactDOM.render(
     document.getElementById('app')!
 );
 
-import('../interp-wasm').then(module => module.greet('Rust'));
+// import('../interp-wasm').then(module => module.greet('Rust'));
