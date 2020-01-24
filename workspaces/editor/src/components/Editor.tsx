@@ -31,6 +31,7 @@ export const Editor: React.FC = () => {
                     <ArrowLine source={[350, 170]} dest={[550, 250]} />
 
                     <ArrowLine source={[325, 50]} dest={[330, 250]} />
+                    <ArrowLine source={[100, 300]} dest={[300, 380]} withHead={false} />
                 </svg>
             </div>
         </React.Fragment>
