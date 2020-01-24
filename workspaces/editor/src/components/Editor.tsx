@@ -8,8 +8,8 @@ import { PatternNode } from './nodes/PatternNode';
 import { ValueNode } from './nodes/ValueNode';
 
 export const Editor: React.FC = () => {
-    const viewBox = [0,0,800,600]
-    const viewBoxStr = viewBox.join(' ')
+    const viewBox = [0, 0, 800, 600];
+    const viewBoxStr = viewBox.join(' ');
     return (
         <React.Fragment>
             <div className="editor-container">
