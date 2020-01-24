@@ -8,7 +8,6 @@ Functional visual programming environment
 
 - yarn
 - Rust
-- wasm-bindgen-cli
 
 ## Install dependencies
 
@@ -16,24 +15,14 @@ Functional visual programming environment
 yarn
 ```
 
-## Build `interp-rs`
+## Build
 
 ```bash
-cd workspaces/interp-rs
-cargo build
+yarn build
 ```
 
-## Build `editor`
+## Serve
 
 ```bash
-cd workspaces/editor
-yarn build:rs
-yarn build:js
-```
-
-## Serve `editor`
-
-```bash
-cd workspaces/editor
 yarn serve
 ```
