@@ -4,8 +4,8 @@
   "scripts": {
     "build": "webpack",
     "serve": "webpack-dev-server --open",
-    "lint": "eslint ./src/* --ext .ts,.tsx",
-    "format": "eslint --fix ./src/* --ext .ts,.tsx"
+    "lint": "eslint ./src/**/*.ts ./src/**/*.tsx && prettier --check ./*.js",
+    "format": "eslint --fix ./src/**/*.ts ./src/**/*.tsx && prettier --write ./*.js"
   },
   "description": "functional visual programming environment",
   "repository": "git@github.com:0918nobita/knights.git",
