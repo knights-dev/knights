@@ -8,10 +8,12 @@ import { PatternNode } from './nodes/PatternNode';
 import { ValueNode } from './nodes/ValueNode';
 
 export const Editor: React.FC = () => {
+    const viewBox = [0,0,800,600]
+    const viewBoxStr = viewBox.join(' ')
     return (
         <React.Fragment>
             <div className="editor-container">
-                <svg className="editor-screen">
+                <svg viewBox={viewBoxStr} className="editor-screen">
                     <IONode x={50} y={50} text="Input" />
                     <PatternNode x={50} y={150} />
                     <ValueNode x={50} y={250} text="f" />
