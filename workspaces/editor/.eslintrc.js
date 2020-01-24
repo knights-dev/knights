@@ -26,6 +26,7 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint', 'prettier', 'simple-import-sort'],
     rules: {
+        'eol-last': ['error', 'always'],
         indent: ['error', 4],
         'linebreak-style': ['error', 'unix'],
         quotes: ['error', 'single'],
