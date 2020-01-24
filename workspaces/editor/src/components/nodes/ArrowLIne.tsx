@@ -26,7 +26,7 @@ export const ArrowLine: React.FC<Props> = ({
     const xdir = Math.sign(dx - sx),
         ydir = Math.sign(dy - sy);
     const radius = Math.min(baseRadius, Math.abs(dx - sx));
-    const headDir = ydir > 0 ? 90 : 270;
+    const headDir = ydir > 0 ? 270 : 90;
 
     const cx = dx - radius * xdir;
     const cy = sy + radius * ydir;
