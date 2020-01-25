@@ -8,7 +8,7 @@ type Props = {
     source: [number, number];
     dest: [number, number];
 
-    withHead?:boolean;
+    withHead?: boolean;
     baseRadius?: number;
     strokeColor?: string;
     strokeWidth?: number;
@@ -43,7 +43,7 @@ export const ArrowLine: React.FC<Props> = ({
     return (
         <React.Fragment>
             <path d={pathDef} fill="none" stroke={strokeColor} strokeWidth={strokeWidth} />
-            { withHead && <ArrowHead hx={dx} hy={dy} dir={headDir} /> }
+            {withHead && <ArrowHead hx={dx} hy={dy} dir={headDir} />}
         </React.Fragment>
     );
 };
