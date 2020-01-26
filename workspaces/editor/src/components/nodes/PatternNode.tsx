@@ -13,7 +13,7 @@ type Props = {
     height?: number;
 };
 
-export const PatternNode: React.FC<Props> = ({
+const PatternNode: React.FC<Props> = ({
     x,
     y,
     height = 30,
@@ -43,3 +43,5 @@ export const PatternNode: React.FC<Props> = ({
         </React.Fragment>
     );
 };
+
+export default React.memo(PatternNode);

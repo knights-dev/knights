@@ -13,7 +13,7 @@ type Props = {
     triangleWidth?: number;
 };
 
-export const ArrowHead: React.FC<Props> = ({
+const ArrowHead: React.FC<Props> = ({
     hx,
     hy,
     dir,
@@ -37,3 +37,5 @@ export const ArrowHead: React.FC<Props> = ({
         </React.Fragment>
     );
 };
+
+export default React.memo(ArrowHead);

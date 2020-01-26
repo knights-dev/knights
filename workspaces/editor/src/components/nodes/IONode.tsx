@@ -15,7 +15,7 @@ type Props = {
     strokeWidth?: number;
 };
 
-export const IONode: React.FC<Props> = ({
+const IONode: React.FC<Props> = ({
     x,
     y,
     text = '',
@@ -52,3 +52,5 @@ export const IONode: React.FC<Props> = ({
         </React.Fragment>
     );
 };
+
+export default React.memo(IONode);
