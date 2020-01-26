@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import React from 'react';
 
-import { ArrowHead } from './ArrowHead';
+import ArrowHead from './ArrowHead';
 
 type Props = {
     source: [number, number];
@@ -14,7 +14,7 @@ type Props = {
     strokeWidth?: number;
 };
 
-export const ArrowLine: React.FC<Props> = ({
+const ArrowLine: React.FC<Props> = ({
     source,
     dest,
     withHead = true,
@@ -47,3 +47,5 @@ export const ArrowLine: React.FC<Props> = ({
         </React.Fragment>
     );
 };
+
+export default React.memo(ArrowLine);

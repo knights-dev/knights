@@ -2,10 +2,7 @@
 import { jsx } from '@emotion/core';
 import React from 'react';
 
-import { ArrowLine } from './nodes/ArrowLine';
-import { IONode } from './nodes/IONode';
-import { PatternNode } from './nodes/PatternNode';
-import { ValueNode } from './nodes/ValueNode';
+import { ArrowLine, IONode, PatternNode, ValueNode } from './nodes';
 
 export const Editor: React.FC = () => {
     const viewBox = [0, 0, 800, 600];

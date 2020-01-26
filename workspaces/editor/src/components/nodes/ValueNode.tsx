@@ -13,7 +13,7 @@ type Props = {
     radius?: number;
 };
 
-export const ValueNode: React.FC<Props> = ({
+const ValueNode: React.FC<Props> = ({
     x,
     y,
     text = '',
@@ -38,3 +38,5 @@ export const ValueNode: React.FC<Props> = ({
         </React.Fragment>
     );
 };
+
+export default React.memo(ValueNode);
