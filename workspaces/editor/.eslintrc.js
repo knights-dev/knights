@@ -22,6 +22,7 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module',
         project: './tsconfig.json',
+        tsconfigRootDir: __dirname,
         useJSXTextNode: true,
     },
     plugins: ['react', '@typescript-eslint', 'prettier', 'simple-import-sort'],
@@ -45,6 +46,14 @@ module.exports = {
             },
         ],
     },
+    overrides: [
+        {
+            files: ['**/*.tsx'],
+            rules: {
+                'react/prop-types': 'off',
+            },
+        },
+    ],
     settings: {
         react: {
             version: 'detect',
