@@ -13,7 +13,7 @@ type Props = {
     radius?: number;
 };
 
-const ValueNode: React.FC<Props> = ({
+const ValueNode = ({
     x,
     y,
     text = '',
@@ -21,7 +21,7 @@ const ValueNode: React.FC<Props> = ({
     fillColor = 'transparent',
     strokeColor = 'red',
     strokeWidth = 2,
-}) => {
+}: Props): JSX.Element => {
     /*
     const nodeProp = {
         inputPoint:[x - radius , y],

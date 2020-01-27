@@ -13,7 +13,7 @@ type Props = {
     height?: number;
 };
 
-const PatternNode: React.FC<Props> = ({
+const PatternNode = ({
     x,
     y,
     height = 30,
@@ -21,7 +21,7 @@ const PatternNode: React.FC<Props> = ({
     fillColor = 'transparent',
     strokeColor = 'red',
     strokeWidth = 2,
-}) => {
+}: Props): JSX.Element => {
     const points = [
         [x - width / 2, y - height / 2],
         [x - width / 2, y + height / 2],

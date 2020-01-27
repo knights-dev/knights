@@ -14,14 +14,14 @@ type Props = {
     strokeWidth?: number;
 };
 
-const ArrowLine: React.FC<Props> = ({
+const ArrowLine = ({
     source,
     dest,
     withHead = true,
     baseRadius = 15,
     strokeColor = 'black',
     strokeWidth = 2,
-}) => {
+}: Props): JSX.Element => {
     const [sx, sy] = source,
         [dx, dy] = dest;
 
