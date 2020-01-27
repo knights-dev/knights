@@ -4,7 +4,7 @@ import React from 'react';
 
 import { ArrowLine, IONode, PatternNode, ValueNode } from './nodes';
 
-export const Editor: React.FC = () => {
+export const Editor = (): JSX.Element => {
     const viewBox = [0, 0, 800, 600];
     const viewBoxStr = viewBox.join(' ');
     return (

@@ -13,7 +13,7 @@ type Props = {
     triangleWidth?: number;
 };
 
-const ArrowHead: React.FC<Props> = ({
+const ArrowHead = ({
     hx,
     hy,
     dir,
@@ -21,7 +21,7 @@ const ArrowHead: React.FC<Props> = ({
     triangleWidth = 10,
     strokeColor = 'black',
     strokeWidth = 2,
-}) => {
+}: Props): JSX.Element => {
     const dirRadian = (dir * Math.PI) / 180;
     const tx = Math.cos(dirRadian) * triangleHeight,
         ty = -Math.sin(dirRadian) * triangleHeight,

@@ -15,7 +15,7 @@ type Props = {
     strokeWidth?: number;
 };
 
-const IONode: React.FC<Props> = ({
+const IONode = ({
     x,
     y,
     text = '',
@@ -25,7 +25,7 @@ const IONode: React.FC<Props> = ({
     fillColor = 'transparent',
     strokeColor = 'red',
     strokeWidth = 2,
-}) => {
+}: Props): JSX.Element => {
     const points = [
         [x - width / 2 - dentDepth / 2, y - height / 2],
         [x - width / 2 + dentDepth / 2, y],
