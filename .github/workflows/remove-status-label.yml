@@ -1,0 +1,16 @@
+name: Remove status label
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  remove-status-label:
+    name: Remove `S-waiting-for-review` label
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove the label
+        run: |
+          curl -X DELETE \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN_2 }}" \
+            https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/labels/S-waiting-for-review
