@@ -27,7 +27,7 @@ export const Editor = (): JSX.Element => {
 
         const dragSubscription = mouseDown$
             .pipe(
-                switchMap(event => {
+                switchMap((event: MouseEvent) => {
                     event.preventDefault();
 
                     let prevX = event.clientX;
@@ -49,15 +49,47 @@ export const Editor = (): JSX.Element => {
                 })
             )
             .subscribe(({ dx, dy }) => {
-                const viewBoxValues = viewBox$.getValue();
-                viewBoxValues[0] = viewBoxValues[0] - dx;
-                viewBoxValues[1] = viewBoxValues[1] - dy;
-                viewBox$.next(viewBoxValues);
+                const values = viewBox$.getValue();
+
+                const scale = 800 / values[2];
+                values[0] = values[0] - dx / scale;
+                values[1] = values[1] - dy / scale;
+
+                viewBox$.next(values);
             });
+
+        const wheelSubscription = fromEvent<WheelEvent>(svgElement, 'wheel').subscribe(event => {
+            event.preventDefault();
+
+            // relative position
+            const { left, top } = (event.currentTarget as Element).getBoundingClientRect();
+            const offsetX = event.clientX - left;
+            const offsetY = event.clientY - top;
+
+            const deltaScale = Math.pow(1.05, event.deltaY < 0 ? 1 : -1);
+
+            // normalized position (from 0 to 1)
+            const sx = offsetX / svgElement.clientWidth;
+            const sy = offsetY / svgElement.clientHeight;
+
+            const [minX, minY, width, height] = viewBox$.getValue();
+
+            // カーソルの位置をローカル座標系で表す
+            const x = minX + width * sx;
+            const y = minY + height * sy;
+
+            const scaledWidth = width * deltaScale;
+            const scaledHeight = height * deltaScale;
+            const scaledMinX = x + deltaScale * (minX - x);
+            const scaledMinY = y + deltaScale * (minY - y);
+
+            viewBox$.next([scaledMinX, scaledMinY, scaledWidth, scaledHeight]);
+        });
 
         return (): void => {
             viewboxSubscription.unsubscribe();
             dragSubscription.unsubscribe();
+            wheelSubscription.unsubscribe();
         };
     }, []);
 
