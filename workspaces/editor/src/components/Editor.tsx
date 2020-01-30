@@ -62,7 +62,7 @@ export const Editor = (): JSX.Element => {
             event.preventDefault();
 
             // relative position
-            const { left, top } = (event.currentTarget as Element).getBoundingClientRect();
+            const { left, top } = svgElement.getBoundingClientRect();
             const offsetX = event.clientX - left;
             const offsetY = event.clientY - top;
 
