@@ -66,7 +66,7 @@ export const Editor = (): JSX.Element => {
             const offsetX = event.clientX - left;
             const offsetY = event.clientY - top;
 
-            const deltaScale = Math.pow(1.05, event.deltaY < 0 ? 1 : -1);
+            const deltaScale = Math.pow(1.05, event.deltaY > 0 ? 1 : -1);
 
             // normalized position (from 0 to 1)
             const sx = offsetX / svgElement.clientWidth;
