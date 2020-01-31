@@ -7,7 +7,7 @@ import { map, switchMap, takeUntil } from 'rxjs/operators';
 import { ArrowLine, IONode, PatternNode, ValueNode } from './nodes';
 
 export const Editor = (): JSX.Element => {
-    const viewBoxInitSize = [0, 0, 800, 600];
+    const initialViewBox = { minX: 0, minY: 0, width: 800, height: 600 };
 
     const ref = createRef<SVGSVGElement>();
 
@@ -15,10 +15,14 @@ export const Editor = (): JSX.Element => {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         const svgElement = ref.current!;
 
-        const viewBox$ = new BehaviorSubject(viewBoxInitSize);
+        const zoomState$ = new BehaviorSubject({ offset: { x: 0, y: 0 }, scale: 1.0 });
 
-        const viewboxSubscription = viewBox$.subscribe(values => {
-            svgElement.setAttribute('viewBox', values.join(' '));
+        const viewboxSubscription = zoomState$.subscribe(({ offset, scale }) => {
+            const minX = offset.x;
+            const minY = offset.y;
+            const width = initialViewBox.width / scale;
+            const height = initialViewBox.height / scale;
+            svgElement.setAttribute('viewBox', [minX, minY, width, height].join(' '));
         });
 
         const mouseDown$ = fromEvent<MouseEvent>(svgElement, 'mousedown');
@@ -49,41 +53,42 @@ export const Editor = (): JSX.Element => {
                 })
             )
             .subscribe(({ dx, dy }) => {
-                const values = viewBox$.getValue();
+                const { offset, scale } = zoomState$.getValue();
 
-                const scale = 800 / values[2];
-                values[0] = values[0] - dx / scale;
-                values[1] = values[1] - dy / scale;
+                offset.x = offset.x - dx / scale;
+                offset.y = offset.y - dy / scale;
 
-                viewBox$.next(values);
+                zoomState$.next({ offset, scale });
             });
 
         const wheelSubscription = fromEvent<WheelEvent>(svgElement, 'wheel').subscribe(event => {
+            // 縦スクロールでない場合は何もしない
+            if (event.deltaY === 0) return;
+
             event.preventDefault();
 
             // relative position
             const { left, top } = svgElement.getBoundingClientRect();
-            const offsetX = event.clientX - left;
-            const offsetY = event.clientY - top;
+            const cursorClientX = event.clientX - left;
+            const cursorClientY = event.clientY - top;
 
-            const deltaScale = Math.pow(1.05, event.deltaY > 0 ? 1 : -1);
+            const {
+                offset: { x: prevOffsetX, y: prevOffsetY },
+                scale: prevScale,
+            } = zoomState$.getValue();
 
-            // normalized position (from 0 to 1)
-            const sx = offsetX / svgElement.clientWidth;
-            const sy = offsetY / svgElement.clientHeight;
+            const cursorX = prevOffsetX + cursorClientX / prevScale;
+            const cursorY = prevOffsetY + cursorClientY / prevScale;
 
-            const [minX, minY, width, height] = viewBox$.getValue();
+            const scaleRatio = event.deltaY < 0 ? 1.05 : 1 / 1.05;
+            const scale = prevScale * scaleRatio;
 
-            // カーソルの位置をローカル座標系で表す
-            const x = minX + width * sx;
-            const y = minY + height * sy;
+            // 「カーソルが不動点」かつ「他の点はカーソルから見た方向が同じで距離がスケール変動倍率の逆数倍」になる必要があり、
+            // 左上の座標 (offsetX, offsetY) もこの規則に従って変化する
+            const offsetX = cursorX + (prevOffsetX - cursorX) / scaleRatio;
+            const offsetY = cursorY + (prevOffsetY - cursorY) / scaleRatio;
 
-            const scaledWidth = width * deltaScale;
-            const scaledHeight = height * deltaScale;
-            const scaledMinX = x + deltaScale * (minX - x);
-            const scaledMinY = y + deltaScale * (minY - y);
-
-            viewBox$.next([scaledMinX, scaledMinY, scaledWidth, scaledHeight]);
+            zoomState$.next({ offset: { x: offsetX, y: offsetY }, scale });
         });
 
         return (): void => {
