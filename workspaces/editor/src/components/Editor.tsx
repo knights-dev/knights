@@ -1,10 +1,15 @@
 /* @jsx jsx */
 import { jsx } from '@emotion/core';
 import React, { createRef, useEffect } from 'react';
-import { BehaviorSubject, fromEvent } from 'rxjs';
-import { map, switchMap, takeUntil } from 'rxjs/operators';
+import { BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
+import { filter, map, switchMap, takeUntil } from 'rxjs/operators';
 
 import { ArrowLine, IONode, PatternNode, ValueNode } from './nodes';
+
+interface State {
+    offset: { x: number; y: number };
+    scale: number;
+}
 
 export const Editor = (): JSX.Element => {
     const initialViewBox = { minX: 0, minY: 0, width: 800, height: 600 };
@@ -15,9 +20,9 @@ export const Editor = (): JSX.Element => {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         const svgElement = ref.current!;
 
-        const zoomState$ = new BehaviorSubject({ offset: { x: 0, y: 0 }, scale: 1.0 });
+        const state$ = new BehaviorSubject<State>({ offset: { x: 0, y: 0 }, scale: 1.0 });
 
-        const viewboxSubscription = zoomState$.subscribe(({ offset, scale }) => {
+        const viewboxSubscription = state$.subscribe(({ offset, scale }) => {
             const minX = offset.x;
             const minY = offset.y;
             const width = initialViewBox.width / scale;
@@ -25,76 +30,75 @@ export const Editor = (): JSX.Element => {
             svgElement.setAttribute('viewBox', [minX, minY, width, height].join(' '));
         });
 
-        const mouseDown$ = fromEvent<MouseEvent>(svgElement, 'mousedown');
         const mouseMove$ = fromEvent<MouseEvent>(svgElement, 'mousemove');
         const mouseUp$ = fromEvent(window, 'mouseup');
 
-        const dragSubscription = mouseDown$
-            .pipe(
-                switchMap((event: MouseEvent) => {
-                    event.preventDefault();
+        const drag$: Observable<State> = fromEvent<MouseEvent>(svgElement, 'mousedown').pipe(
+            switchMap((event: MouseEvent) => {
+                event.preventDefault();
 
-                    let prevX = event.clientX;
-                    let prevY = event.clientY;
+                let prevX = event.clientX;
+                let prevY = event.clientY;
 
-                    return mouseMove$.pipe(
-                        map(moveEvent => {
-                            moveEvent.preventDefault();
+                return mouseMove$.pipe(
+                    map(moveEvent => {
+                        moveEvent.preventDefault();
 
-                            const delta = { dx: moveEvent.clientX - prevX, dy: moveEvent.clientY - prevY };
+                        const delta = { dx: moveEvent.clientX - prevX, dy: moveEvent.clientY - prevY };
 
-                            prevX = moveEvent.clientX;
-                            prevY = moveEvent.clientY;
+                        prevX = moveEvent.clientX;
+                        prevY = moveEvent.clientY;
 
-                            return delta;
-                        }),
-                        takeUntil(mouseUp$)
-                    );
-                })
-            )
-            .subscribe(({ dx, dy }) => {
-                const { offset, scale } = zoomState$.getValue();
+                        return delta;
+                    }),
+                    takeUntil(mouseUp$)
+                );
+            }),
+            map(({ dx, dy }) => {
+                const { offset, scale } = state$.getValue();
 
                 offset.x = offset.x - dx / scale;
                 offset.y = offset.y - dy / scale;
 
-                zoomState$.next({ offset, scale });
-            });
+                return { offset, scale };
+            })
+        );
 
-        const wheelSubscription = fromEvent<WheelEvent>(svgElement, 'wheel').subscribe(event => {
-            // 縦スクロールでない場合は何もしない
-            if (event.deltaY === 0) return;
+        const zoom$: Observable<State> = fromEvent<WheelEvent>(svgElement, 'wheel').pipe(
+            filter(event => event.deltaY !== 0),
+            map(event => {
+                event.preventDefault();
 
-            event.preventDefault();
+                // relative position
+                const { left, top } = svgElement.getBoundingClientRect();
+                const cursorClientX = event.clientX - left;
+                const cursorClientY = event.clientY - top;
 
-            // relative position
-            const { left, top } = svgElement.getBoundingClientRect();
-            const cursorClientX = event.clientX - left;
-            const cursorClientY = event.clientY - top;
+                const {
+                    offset: { x: prevOffsetX, y: prevOffsetY },
+                    scale: prevScale,
+                } = state$.getValue();
 
-            const {
-                offset: { x: prevOffsetX, y: prevOffsetY },
-                scale: prevScale,
-            } = zoomState$.getValue();
+                const cursorX = prevOffsetX + cursorClientX / prevScale;
+                const cursorY = prevOffsetY + cursorClientY / prevScale;
 
-            const cursorX = prevOffsetX + cursorClientX / prevScale;
-            const cursorY = prevOffsetY + cursorClientY / prevScale;
+                const scaleRatio = event.deltaY < 0 ? 1.05 : 1 / 1.05;
+                const scale = prevScale * scaleRatio;
 
-            const scaleRatio = event.deltaY < 0 ? 1.05 : 1 / 1.05;
-            const scale = prevScale * scaleRatio;
+                // 「カーソルが不動点」かつ「他の点はカーソルから見た方向が同じで距離がスケール変動倍率の逆数倍」になる必要があり、
+                // 左上の座標 (offsetX, offsetY) もこの規則に従って変化する
+                const offsetX = cursorX + (prevOffsetX - cursorX) / scaleRatio;
+                const offsetY = cursorY + (prevOffsetY - cursorY) / scaleRatio;
 
-            // 「カーソルが不動点」かつ「他の点はカーソルから見た方向が同じで距離がスケール変動倍率の逆数倍」になる必要があり、
-            // 左上の座標 (offsetX, offsetY) もこの規則に従って変化する
-            const offsetX = cursorX + (prevOffsetX - cursorX) / scaleRatio;
-            const offsetY = cursorY + (prevOffsetY - cursorY) / scaleRatio;
+                return { offset: { x: offsetX, y: offsetY }, scale };
+            })
+        );
 
-            zoomState$.next({ offset: { x: offsetX, y: offsetY }, scale });
-        });
+        const stateSubscription = merge(drag$, zoom$).subscribe(state => state$.next(state));
 
         return (): void => {
             viewboxSubscription.unsubscribe();
-            dragSubscription.unsubscribe();
-            wheelSubscription.unsubscribe();
+            stateSubscription.unsubscribe();
         };
     }, []);
 
