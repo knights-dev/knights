@@ -33,7 +33,7 @@ module.exports = {
             template: path.join(__dirname, 'index.html'),
         }),
         new WasmPackPlugin({
-            crateDirectory: path.resolve(__dirname, '../interp-rs/'),
+            crateDirectory: path.resolve(__dirname, '../interp-if/'),
             outDir: '../editor/interp-wasm',
         }),
     ],

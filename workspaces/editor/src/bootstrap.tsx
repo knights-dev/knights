@@ -4,6 +4,7 @@ import Fleur from '@fleur/fleur';
 import { FleurContext } from '@fleur/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Subject } from 'rxjs';
 
 import { AppRoot } from './components/AppRoot';
 import { store } from './domains/counter/store';
@@ -22,4 +23,15 @@ ReactDOM.render(
     document.getElementById('app')!
 );
 
-// import('../interp-wasm').then(module => module.greet('Rust'));
+const subject = new Subject<number>();
+
+subject.subscribe({
+    next(value: number) {
+        console.log(`Received: ${value}`);
+    },
+});
+
+import('../interp-wasm').then(module => {
+    module.greet('Rust');
+    module.apply((n: number) => subject.next(n));
+});

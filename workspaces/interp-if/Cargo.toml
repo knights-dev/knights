@@ -10,4 +10,6 @@ edition = "2018"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-wasm-bindgen="0.2"
+interp-core = { path = "../interp-core" }
+js-sys = "0.3"
+wasm-bindgen = "0.2"

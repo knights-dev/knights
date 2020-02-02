@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "workspaces/interp-core",
+    "workspaces/interp-if",
+]
