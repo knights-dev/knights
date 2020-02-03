@@ -32,6 +32,6 @@ subject.subscribe({
 });
 
 import('../interp-wasm').then(module => {
-    module.greet('Rust');
-    module.apply((n: number) => subject.next(n));
+    console.log(module.sync_command({ command: 'greet', name: 'Rust' }));
+    console.log(module.sync_command({ command: 'make_object', name: 'Rust' }));
 });
