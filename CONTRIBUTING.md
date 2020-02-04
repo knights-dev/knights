@@ -44,21 +44,18 @@ AST ・実行状態を通信する仲立ちとなる役割を担っています�
 
 すべての PR は、マージ前にメンテナーである [0918nobita](https://github.com/0918nobita) の承認 (Approval) を必要とします。
 
-### PR のラベル管理に関して
+### PR のラベルに関して
 
-レビューを求めているか、まだ作業中なのかを判別するために、  
-ステータス系ラベルは必ずどれか一つ追加するようにお願いします。
-
-- **ステータス系ラベル**
+- ステータス系ラベル
     - `S-waiting-for-review` : レビュー待ち
     - `S-work-in-progress` : 作業中
-- 種別系ラベル (任意)
+- 種別系ラベル
     - `T-bugfix` : バグ修正
     - `T-enhancement` : 既存機能の改善
     - `T-new-feature` : 新機能の追加
     - `T-refactoring` : リファクタリング
     - `T-RFC` : RFC (Request for Comments) の追加
-- エリア系ラベル (任意)
+- エリア系ラベル
     - `A-node-editor` : ノードエディタに関する変更
     - `A-interpreter` : インタプリタに関する変更
 
