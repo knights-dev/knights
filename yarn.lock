@@ -7886,7 +7886,7 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-wasm-pack@^0.9.0:
+wasm-pack@0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/wasm-pack/-/wasm-pack-0.9.0.tgz#cff4f13329865544c4a97adb32f4779ebb9046dd"
   integrity sha512-L80R+KYZNFsV8+X/6Ky1Jsd99PHJjRQ4lX0O3Q/fKylqPVUYnspGrnE/3yYV9INHbyat7XvQURS+aWxurcEKqQ==
