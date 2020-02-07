@@ -1,10 +1,28 @@
 /* @jsx jsx */
 import { jsx } from '@emotion/core';
-import React, { createRef, useEffect } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 import { BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
 import { filter, map, switchMap, takeUntil } from 'rxjs/operators';
 
-import { ArrowLine, IONode, PatternNode, ValueNode } from './nodes';
+import ArrowLayer from './ArrowLayer';
+import { ApplyNode, IONode, ValueNode } from './nodes';
+import { EventLayout, Graph, GraphNode, NodeID, NodeLayoutInfo, NodePosition, sampleGraph } from './struct';
+
+const createComponent = (node: GraphNode, onLayout: EventLayout): JSX.Element => {
+    const [x, y] = node.position;
+    switch (node.type) {
+        case 'Input':
+            return <IONode x={x} y={y} onLayout={onLayout} />;
+        case 'Value':
+            return <ValueNode x={x} y={y} onLayout={onLayout} text="+" />;
+        case 'Apply':
+            return <ApplyNode x={x} y={y} onLayout={onLayout} />;
+        case 'Output':
+            return <IONode x={x} y={y} onLayout={onLayout} text="Output" />;
+        default:
+            throw new Error('Unknown type');
+    }
+};
 
 interface State {
     offset: { x: number; y: number };
@@ -102,28 +120,30 @@ export const Editor = (): JSX.Element => {
         };
     }, []);
 
+    const graph: Graph = sampleGraph;
+
+    const [inputPos, setInputPos] = useState<Map<NodeID, NodePosition[]>>(new Map());
+    const [outputPos, setOutputPos] = useState<Map<NodeID, NodePosition>>(new Map());
+    const nodeElements: JSX.Element[] = [];
+
+    for (const node of graph.nodes) {
+        const nodeId = node.id;
+        const onLayout = (e: NodeLayoutInfo): void => {
+            inputPos.set(nodeId, e.inputPoint);
+            outputPos.set(nodeId, e.outputPoint);
+            setInputPos(inputPos);
+            setOutputPos(outputPos);
+        };
+        const el = createComponent(node, onLayout);
+        nodeElements.push(el);
+    }
+
     return (
         <React.Fragment>
             <div className="editor-container">
                 <svg ref={ref} className="editor-screen">
-                    <IONode x={50} y={50} text="Input" />
-                    <PatternNode x={50} y={150} />
-                    <ValueNode x={50} y={250} text="f" />
-
-                    <ArrowLine source={[100, 50]} dest={[300, 130]} />
-                    <ArrowLine source={[100, 250]} dest={[300, 170]} />
-
-                    <ArrowLine source={[550, 50]} dest={[350, 130]} />
-                    <ArrowLine source={[550, 250]} dest={[350, 170]} />
-
-                    <ArrowLine source={[300, 130]} dest={[100, 50]} />
-                    <ArrowLine source={[300, 170]} dest={[100, 250]} />
-
-                    <ArrowLine source={[350, 130]} dest={[550, 50]} />
-                    <ArrowLine source={[350, 170]} dest={[550, 250]} />
-
-                    <ArrowLine source={[325, 50]} dest={[330, 250]} />
-                    <ArrowLine source={[100, 300]} dest={[300, 380]} withHead={false} />
+                    {nodeElements}
+                    <ArrowLayer nodes={graph.nodes} inputPos={inputPos} outputPos={outputPos} />
                 </svg>
             </div>
         </React.Fragment>

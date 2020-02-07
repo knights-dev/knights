@@ -2,6 +2,7 @@
 import { jsx } from '@emotion/core';
 import React from 'react';
 
+import { EventLayout, NodePosition } from '../struct';
 type Props = {
     x: number;
     y: number;
@@ -13,11 +14,14 @@ type Props = {
     fillColor?: string;
     strokeColor?: string;
     strokeWidth?: number;
+
+    onLayout: EventLayout;
 };
 
 const IONode = ({
     x,
     y,
+    onLayout,
     text = '',
     height = 30,
     width = 60,
@@ -26,7 +30,7 @@ const IONode = ({
     strokeColor = 'red',
     strokeWidth = 2,
 }: Props): JSX.Element => {
-    const points = [
+    const points: NodePosition[] = [
         [x - width / 2 - dentDepth / 2, y - height / 2],
         [x - width / 2 + dentDepth / 2, y],
         [x - width / 2 - dentDepth / 2, y + height / 2],
@@ -36,12 +40,10 @@ const IONode = ({
     ];
     const pointsText = points.map(p => p.join(',')).join(' ');
 
-    /*
-    const nodeProp = {
-        inputPoint:points[1],
-        outputPoint:points[5]
-    }
-    */
+    onLayout({
+        inputPoint: [points[1]],
+        outputPoint: points[4],
+    });
 
     return (
         <React.Fragment>
