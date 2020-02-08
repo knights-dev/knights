@@ -12,9 +12,9 @@ const createComponent = (node: GraphNode, onLayout: EventLayout): JSX.Element =>
     const [x, y] = node.position;
     switch (node.type) {
         case 'Input':
-            return <IONode x={x} y={y} onLayout={onLayout} />;
+            return <IONode x={x} y={y} onLayout={onLayout} text={node.params.bind || ''} />;
         case 'Value':
-            return <ValueNode x={x} y={y} onLayout={onLayout} text="+" />;
+            return <ValueNode x={x} y={y} onLayout={onLayout} text={node.params.name || ''} />;
         case 'Apply':
             return <ApplyNode x={x} y={y} onLayout={onLayout} />;
         case 'Output':

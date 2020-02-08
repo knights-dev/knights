@@ -13,7 +13,8 @@ export type NodePosition = [number, number];
 export interface GraphNode {
     id: NodeID;
     type: string;
-    params: object;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    params: any;
     position: NodePosition;
     inputs: string[];
 }
