@@ -14,6 +14,9 @@ type Props = {
     strokeWidth?: number;
 };
 
+/*
+    左右から上下に繋ぐ線(90度曲がる)
+*/
 const ArrowLine = ({
     source,
     dest,

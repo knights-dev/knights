@@ -14,6 +14,10 @@ type Props = {
     strokeWidth?: number;
 };
 
+/*
+    左右から左右に繋ぐ線(二回曲がる)
+*/
+
 const ArrowLine = ({
     source,
     dest,
