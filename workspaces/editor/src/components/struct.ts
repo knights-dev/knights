@@ -7,21 +7,21 @@ export type Mm = typeof mm;
 type LengthUnit = Px | Mm;
 export type Length<U extends LengthUnit> = SymbolBranded<number, LengthUnit, U>;
 
+export type NodeID = string;
+export type NodePosition = [number, number];
+
 export interface GraphNode {
-    id: string;
+    id: NodeID;
     type: string;
     params: object;
-    position: [number, number];
+    position: NodePosition;
     inputs: string[];
 }
 
 export type Graph = {
     nodes: GraphNode[];
-    inputs: string[];
+    inputs: NodeID[];
 };
-
-export type NodeID = string;
-export type NodePosition = [number, number];
 
 export type NodeLayoutInfo = {
     inputPoint: NodePosition[];
@@ -36,7 +36,7 @@ export const sampleGraph: Graph = {
         { id: '2', type: 'Input', params: { bind: 'y' }, position: [100, 300], inputs: [] },
         { id: '3', type: 'Value', params: { name: '+' }, position: [100, 200], inputs: [] },
         { id: '4', type: 'Apply', params: {}, position: [300, 200], inputs: ['3', '1'] },
-        { id: '5', type: 'Apply', params: {}, position: [500, 200], inputs: ['4', '2'] },
+        { id: '5', type: 'Apply', params: {}, position: [500, 150], inputs: ['4', '2'] },
         { id: '6', type: 'Output', params: {}, position: [600, 200], inputs: ['5'] },
     ],
     inputs: ['x', 'y'],

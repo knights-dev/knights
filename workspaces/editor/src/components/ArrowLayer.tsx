@@ -17,12 +17,20 @@ const PatternNode = ({ nodes, inputPos, outputPos }: Props): JSX.Element => {
         const toId = node.id;
         const destPosList = inputPos.get(toId);
         if (destPosList == null) continue;
-        for (const argId in node.inputs) {
+        const argLength = node.inputs.length;
+        for (let argId = 0; argId < argLength; argId++) {
             const fromId = node.inputs[argId];
             const sourcePos = outputPos.get(fromId);
             const destPos = destPosList[argId];
             if (sourcePos != null && destPos != null) {
-                const el = <ArrowLine source={sourcePos} dest={destPos} />;
+                const el = (
+                    <ArrowLine
+                        source={sourcePos}
+                        dest={destPos}
+                        horizontal={argId == 0}
+                        withHead={argId > 0 || argLength <= 1}
+                    />
+                );
                 arrowElements.push(el);
             }
         }

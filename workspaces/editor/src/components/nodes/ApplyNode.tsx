@@ -20,7 +20,11 @@ const ApplyNode = ({ x, y, onLayout }: Props): JSX.Element => {
         outputPoint: [x, y],
     });
 
-    return <React.Fragment />;
+    return (
+        <React.Fragment>
+            <circle fill="black" cx={x} cy={y} r={3} />
+        </React.Fragment>
+    );
 };
 
 export default React.memo(ApplyNode);
