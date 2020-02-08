@@ -12,13 +12,13 @@ const createComponent = (node: GraphNode, onLayout: EventLayout): JSX.Element =>
     const [x, y] = node.position;
     switch (node.type) {
         case 'Input':
-            return <IONode x={x} y={y} onLayout={onLayout} text={node.params.bind || ''} />;
+            return <IONode x={x} y={y} onLayout={onLayout} text={node.params.bind || ''} key={node.id} />;
         case 'Value':
-            return <ValueNode x={x} y={y} onLayout={onLayout} text={node.params.name || ''} />;
+            return <ValueNode x={x} y={y} onLayout={onLayout} text={node.params.name || ''} key={node.id} />;
         case 'Apply':
-            return <ApplyNode x={x} y={y} onLayout={onLayout} />;
+            return <ApplyNode x={x} y={y} onLayout={onLayout} key={node.id} />;
         case 'Output':
-            return <IONode x={x} y={y} onLayout={onLayout} text="Output" />;
+            return <IONode x={x} y={y} onLayout={onLayout} text="Output" key={node.id} />;
         default:
             throw new Error('Unknown type');
     }

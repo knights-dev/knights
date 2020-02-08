@@ -29,6 +29,7 @@ const PatternNode = ({ nodes, inputPos, outputPos }: Props): JSX.Element => {
                         dest={destPos}
                         horizontal={argId == 0}
                         withHead={argId > 0 || argLength <= 1}
+                        key={`${fromId}->${toId}`}
                     />
                 );
                 arrowElements.push(el);
