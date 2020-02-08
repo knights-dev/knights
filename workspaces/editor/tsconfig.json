@@ -2,10 +2,7 @@
   "compilerOptions": {
     "target": "es2015",
     "module": "esnext",
-    "lib": [
-      "dom",
-      "es2015"
-    ],
+    "lib": ["dom", "es2015"],
     "jsx": "react",
     "sourceMap": true,
     "outDir": "./dist",
@@ -25,6 +22,9 @@
 
     /* モジュール解決のオプション */
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+
+    "baseUrl": ".",
+    "paths": { "src/*": ["src/*"] }
   }
 }
