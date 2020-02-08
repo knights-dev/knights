@@ -1,7 +1,7 @@
 /* @jsx jsx */
 import { jsx } from '@emotion/core';
 import React, { createRef, useEffect } from 'react';
-import { BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
+import { BehaviorSubject, from, fromEvent, merge, Observable } from 'rxjs';
 import { filter, map, switchMap, takeUntil } from 'rxjs/operators';
 
 import { ArrowLine, IONode, PatternNode, ValueNode } from './nodes';
@@ -34,26 +34,30 @@ export const Editor = (): JSX.Element => {
         const mouseUp$ = fromEvent(window, 'mouseup');
 
         const drag$: Observable<State> = fromEvent<MouseEvent>(svgElement, 'mousedown').pipe(
-            switchMap((event: MouseEvent) => {
-                event.preventDefault();
+            switchMap(
+                (event: MouseEvent): Observable<{ dx: number; dy: number }> => {
+                    event.preventDefault();
+                    if (!event.shiftKey) {
+                        return from<{ dx: number; dy: number }[]>([]);
+                    }
+                    let prevX = event.clientX;
+                    let prevY = event.clientY;
 
-                let prevX = event.clientX;
-                let prevY = event.clientY;
+                    return mouseMove$.pipe(
+                        map(moveEvent => {
+                            moveEvent.preventDefault();
 
-                return mouseMove$.pipe(
-                    map(moveEvent => {
-                        moveEvent.preventDefault();
+                            const delta = { dx: moveEvent.clientX - prevX, dy: moveEvent.clientY - prevY };
 
-                        const delta = { dx: moveEvent.clientX - prevX, dy: moveEvent.clientY - prevY };
+                            prevX = moveEvent.clientX;
+                            prevY = moveEvent.clientY;
 
-                        prevX = moveEvent.clientX;
-                        prevY = moveEvent.clientY;
-
-                        return delta;
-                    }),
-                    takeUntil(mouseUp$)
-                );
-            }),
+                            return delta;
+                        }),
+                        takeUntil(mouseUp$)
+                    );
+                }
+            ),
             map(({ dx, dy }) => {
                 const { offset, scale } = state$.getValue();
 
