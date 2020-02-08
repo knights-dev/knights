@@ -24,3 +24,12 @@ jobs:
         run: yarn
       - name: Run shell script
         run: yarn lint
+
+  rustfmt:
+    runs-on: ubuntu-latest
+    name: Check Rust code
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Run rustfmt
+        run: cargo fmt -- --check
