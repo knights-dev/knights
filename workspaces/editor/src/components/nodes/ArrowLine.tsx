@@ -4,7 +4,6 @@ import React from 'react';
 
 import CurvedArrowLine from './CurvedArrowLine';
 import DoubleCurvedArrowLine from './DoubleCurvedArrowLine';
-// import StreightArrowLine from './StreightArrowLine';
 
 type Props = {
     source: [number, number];
@@ -18,12 +17,7 @@ type Props = {
     horizontal?: boolean;
 };
 
-const ArrowLine = (props: Props): JSX.Element => {
-    if (!props.horizontal) {
-        return <CurvedArrowLine {...props} />;
-    } else {
-        return <DoubleCurvedArrowLine {...props} />;
-    }
-};
+const ArrowLine = ({ horizontal, ...childProps }: Props): JSX.Element =>
+    horizontal ? <DoubleCurvedArrowLine {...childProps} /> : <CurvedArrowLine {...childProps} />;
 
 export default React.memo(ArrowLine);
