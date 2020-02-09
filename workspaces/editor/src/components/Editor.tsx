@@ -1,7 +1,7 @@
 /* @jsx jsx */
 import { jsx } from '@emotion/core';
 import React, { createRef, useEffect } from 'react';
-import { BehaviorSubject, from, fromEvent, merge, Observable } from 'rxjs';
+import { BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
 import { filter, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 
 import { ArrowLine, IONode, PatternNode, ValueNode } from './nodes';
