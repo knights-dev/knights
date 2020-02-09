@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import React, { createRef, useEffect } from 'react';
 import { BehaviorSubject, from, fromEvent, merge, Observable } from 'rxjs';
-import { filter, map, switchMap, takeUntil } from 'rxjs/operators';
+import { filter, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 
 import { ArrowLine, IONode, PatternNode, ValueNode } from './nodes';
 
@@ -34,10 +34,10 @@ export const Editor = (): JSX.Element => {
         const mouseUp$ = fromEvent(window, 'mouseup');
 
         const drag$: Observable<State> = fromEvent<MouseEvent>(svgElement, 'mousedown').pipe(
+            tap((event: MouseEvent) => event.preventDefault()),
             filter((event: MouseEvent) => event.shiftKey),
             switchMap(
                 (event: MouseEvent): Observable<{ dx: number; dy: number }> => {
-                    event.preventDefault();
                     let prevX = event.clientX;
                     let prevY = event.clientY;
 
