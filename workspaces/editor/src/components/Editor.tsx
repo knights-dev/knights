@@ -34,12 +34,10 @@ export const Editor = (): JSX.Element => {
         const mouseUp$ = fromEvent(window, 'mouseup');
 
         const drag$: Observable<State> = fromEvent<MouseEvent>(svgElement, 'mousedown').pipe(
+            filter((event: MouseEvent) => event.shiftKey),
             switchMap(
                 (event: MouseEvent): Observable<{ dx: number; dy: number }> => {
                     event.preventDefault();
-                    if (!event.shiftKey) {
-                        return from<{ dx: number; dy: number }[]>([]);
-                    }
                     let prevX = event.clientX;
                     let prevY = event.clientY;
 
