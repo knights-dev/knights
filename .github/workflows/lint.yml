@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Run shell script
         run: bash ./scripts/ensure-newline-at-eof.sh
 
@@ -19,7 +19,7 @@ jobs:
     name: Check code formatting
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Install dependencies
         run: yarn
       - name: Run shell script
@@ -30,6 +30,6 @@ jobs:
     name: Check Rust code
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Run rustfmt
         run: cargo fmt -- --check
