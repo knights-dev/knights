@@ -9,7 +9,9 @@
     "lint:js:fix": "prettier --write ./*.js",
     "lint:style": "stylelint ./src/**/*.scss ./src/**/*.css",
     "lint": "yarn lint:ts && yarn lint:style && yarn lint:js",
-    "format": "yarn lint:ts --fix && yarn lint:style --fix && yarn lint:js:fix"
+    "format": "yarn lint:ts --fix && yarn lint:style --fix && yarn lint:js:fix",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "description": "functional visual programming environment",
   "repository": "git@github.com:0918nobita/knights.git",
@@ -22,16 +24,22 @@
     "@fleur/react": "3.2.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "rxjs": "6.5.4"
+    "rxjs": "6.5.4",
+    "storybook": "^5.3.12"
   },
   "devDependencies": {
     "@babel/core": "7.8.4",
     "@babel/preset-env": "7.8.4",
+    "@storybook/addon-actions": "^5.3.12",
+    "@storybook/addon-links": "^5.3.12",
+    "@storybook/addons": "^5.3.12",
+    "@storybook/react": "^5.3.12",
     "@types/react": "16.9.19",
     "@types/react-dom": "16.9.5",
     "@typescript-eslint/eslint-plugin": "2.19.2",
     "@typescript-eslint/parser": "2.19.2",
     "@wasm-tool/wasm-pack-plugin": "1.1.0",
+    "babel-loader": "^8.0.6",
     "css-loader": "3.4.2",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
