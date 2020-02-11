@@ -4,7 +4,9 @@
         "format": "cd \"./workspaces/editor/\" && yarn format",
         "lint": "cd \"./workspaces/editor/\" && yarn lint",
         "build": "cd \"./workspaces/editor/\" && yarn build",
-        "serve": "cd \"./workspaces/editor/\" && yarn serve"
+        "serve": "cd \"./workspaces/editor/\" && yarn serve",
+        "storybook": "cd \"./workspaces/editor/\" && yarn storybook",
+        "build-storybook": "cd \"./workspaces/editor/\" && yarn build-storybook"
     },
     "workspaces": [
         "workspaces/*"

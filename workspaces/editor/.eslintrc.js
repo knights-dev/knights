@@ -71,6 +71,12 @@ module.exports = {
                 'react/prop-types': 'off',
             },
         },
+        {
+            files: ['**/*.stories.tsx'],
+            rules: {
+                'react/react-in-jsx-scope': 'off',
+            },
+        },
     ],
     settings: {
         react: {

@@ -32,6 +32,6 @@ subject.subscribe({
 });
 
 import('../interp-wasm').then(module => {
-    module.greet('Rust');
+    //    module.greet('Rust');
     module.apply((n: number) => subject.next(n));
 });
