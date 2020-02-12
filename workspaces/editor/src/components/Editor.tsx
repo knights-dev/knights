@@ -5,24 +5,8 @@ import { BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
 import { filter, map, switchMap, takeUntil } from 'rxjs/operators';
 
 import ArrowLayer from './ArrowLayer';
-import { ApplyNode, IONode, ValueNode } from './nodes';
-import { EventLayout, Graph, GraphNode, NodeID, NodeLayoutInfo, NodePosition, sampleGraph } from './struct';
-
-const createComponent = (node: GraphNode, onLayout: EventLayout): JSX.Element => {
-    const [x, y] = node.position;
-    switch (node.type) {
-        case 'Input':
-            return <IONode x={x} y={y} onLayout={onLayout} text={node.params.bind || ''} key={node.id} />;
-        case 'Value':
-            return <ValueNode x={x} y={y} onLayout={onLayout} text={node.params.name || ''} key={node.id} />;
-        case 'Apply':
-            return <ApplyNode x={x} y={y} onLayout={onLayout} key={node.id} />;
-        case 'Output':
-            return <IONode x={x} y={y} onLayout={onLayout} text="Output" key={node.id} />;
-        default:
-            throw new Error('Unknown type');
-    }
-};
+import NodesLayer from './NodesLayer';
+import { Graph, NodeID, NodePosition, sampleGraph } from './struct';
 
 interface State {
     offset: { x: number; y: number };
@@ -124,25 +108,12 @@ export const Editor = (): JSX.Element => {
 
     const [inputPos, setInputPos] = useState<Map<NodeID, NodePosition[]>>(new Map());
     const [outputPos, setOutputPos] = useState<Map<NodeID, NodePosition>>(new Map());
-    const nodeElements: JSX.Element[] = [];
-
-    for (const node of graph.nodes) {
-        const nodeId = node.id;
-        const onLayout = (e: NodeLayoutInfo): void => {
-            inputPos.set(nodeId, e.inputPoint);
-            outputPos.set(nodeId, e.outputPoint);
-            setInputPos(inputPos);
-            setOutputPos(outputPos);
-        };
-        const el = createComponent(node, onLayout);
-        nodeElements.push(el);
-    }
 
     return (
         <React.Fragment>
             <div className="editor-container">
                 <svg ref={ref} className="editor-screen">
-                    {nodeElements}
+                    <NodesLayer nodes={graph.nodes} setInputPos={setInputPos} setOutputPos={setOutputPos} />
                     <ArrowLayer nodes={graph.nodes} inputPos={inputPos} outputPos={outputPos} />
                 </svg>
             </div>
