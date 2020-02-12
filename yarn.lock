@@ -7886,10 +7886,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-wasm-pack@0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/wasm-pack/-/wasm-pack-0.9.0.tgz#cff4f13329865544c4a97adb32f4779ebb9046dd"
-  integrity sha512-L80R+KYZNFsV8+X/6Ky1Jsd99PHJjRQ4lX0O3Q/fKylqPVUYnspGrnE/3yYV9INHbyat7XvQURS+aWxurcEKqQ==
+wasm-pack@0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/wasm-pack/-/wasm-pack-0.9.1.tgz#f1e80814c7197a469e700ff15b6c16cad5dbb2ae"
+  integrity sha512-866+5UIdASabHMVU+M1azbn8tN1g6kLDoL5qvzVYep2hCYicKCgD/Y1LD0yOB3xMDdi+OD51WYNNBGH1NNF23g==
   dependencies:
     binary-install "0.0.1"
 
