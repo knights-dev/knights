@@ -1,4 +1,6 @@
 /* @jsx jsx */
+import '../scss/editor.scss';
+
 import { jsx } from '@emotion/core';
 import { number, text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
