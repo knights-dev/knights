@@ -5,7 +5,7 @@ type Name = String;
 /// Literal expression
 #[derive(Clone, Debug)]
 pub enum Lit {
-    Num(f64),
+    Int(i64),
 }
 
 /// AST
