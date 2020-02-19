@@ -8,6 +8,7 @@ Functional visual programming environment
 
 - yarn
 - Rust
+- (If you use Windows, install [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/#) manually)
 
 ## Install dependencies
 
