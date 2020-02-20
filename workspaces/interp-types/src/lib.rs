@@ -1,7 +1,7 @@
 //! Definitions AST, values, and types used by interp-if and interp-core
 
 /// Aliases
-type VarId = String;
+type VarId = u64;
 type TyVarId = u64;
 type TyConId = String;
 
@@ -20,16 +20,10 @@ pub enum Expr {
     Lit(Lit),
 }
 
-/// An data expression of a type variable
-#[derive(Clone, Debug)]
-pub enum TV {
-    TV(TyVarId),
-}
-
 /// Types
 #[derive(Clone, Debug)]
 pub enum Type {
-    TyVar(TV),
+    TyVar(TyVarId),
     TyCon(TyConId),
     TyFun(Box<Type>, Box<Type>),
 }
