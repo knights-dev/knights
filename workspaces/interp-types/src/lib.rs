@@ -1,35 +1,29 @@
 //! Definitions AST, values, and types used by interp-if and interp-core
 
-type Name = String;
-type Num = f64;
+/// Aliases
+type VarId = u64;
+type TyVarId = u64;
+type TyConId = String;
 
 /// Literal expression
 #[derive(Clone, Debug)]
 pub enum Lit {
-    Num(Num),
+    Int(i64),
 }
 
 /// AST
 #[derive(Clone, Debug)]
 pub enum Expr {
     App(Box<Expr>, Box<Expr>),
-    Lam(Name, Box<Expr>),
-    Var(Name),
+    Lam(VarId, Option<Type>, Box<Expr>),
+    Var(VarId),
     Lit(Lit),
-}
-
-/// Values
-#[derive(Clone, Debug)]
-pub enum Value {
-    VNum(Num),
-    VApp(Box<Value>, Box<Value>),
-    VLam(fn(Box<Value>) -> Box<Value>),
 }
 
 /// Types
 #[derive(Clone, Debug)]
 pub enum Type {
-    TyVar(Name),
-    TyCon(Name, Vec<Box<Type>>),
+    TyVar(TyVarId),
+    TyCon(TyConId),
     TyFun(Box<Type>, Box<Type>),
 }
