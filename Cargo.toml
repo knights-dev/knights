@@ -2,6 +2,5 @@
 
 members = [
     "workspaces/interp-core",
-    "workspaces/interp-types",
     "workspaces/interp-if",
 ]
