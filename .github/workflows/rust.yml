@@ -1,0 +1,25 @@
+name: Rust
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  rustfmt:
+    runs-on: ubuntu-latest
+    name: Check Rust code
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run rustfmt
+        run: cargo fmt -- --check
+
+  run-tests:
+    name: Run tests
+    needs: rustfmt
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run tests
+        run: cargo test
