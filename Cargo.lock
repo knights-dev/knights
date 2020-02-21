@@ -15,10 +15,6 @@ name = "interp-core"
 version = "0.1.0"
 
 [[package]]
-name = "interp-types"
-version = "0.1.0"
-
-[[package]]
 name = "interpreter"
 version = "0.1.0"
 dependencies = [

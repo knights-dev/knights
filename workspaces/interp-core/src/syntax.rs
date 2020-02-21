@@ -1,9 +1,9 @@
 //! Definitions AST, values, and types used by interp-if and interp-core
 
 /// Aliases
-type VarId = u64;
-type TyVarId = u64;
-type TyConId = String;
+pub type VarId = u64;
+pub type TyVarId = u64;
+pub type TyConId = String;
 
 /// Literal expression
 #[derive(Clone, Debug)]
