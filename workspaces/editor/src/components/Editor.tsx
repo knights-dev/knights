@@ -1,10 +1,12 @@
 /* @jsx jsx */
 import { jsx } from '@emotion/core';
-import React, { createRef, useEffect } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 import { BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
 import { filter, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 
-import { ArrowLine, IONode, PatternNode, ValueNode } from './nodes';
+import ArrowLayer from './ArrowLayer';
+import NodesLayer from './NodesLayer';
+import { Graph, NodeID, NodePosition, sampleGraph } from './struct';
 
 interface State {
     offset: { x: number; y: number };
@@ -104,28 +106,17 @@ export const Editor = (): JSX.Element => {
         };
     }, []);
 
+    const graph: Graph = sampleGraph;
+
+    const [inputPos, setInputPos] = useState<Map<NodeID, NodePosition[]>>(new Map());
+    const [outputPos, setOutputPos] = useState<Map<NodeID, NodePosition>>(new Map());
+
     return (
         <React.Fragment>
             <div className="editor-container">
                 <svg ref={ref} className="editor-screen">
-                    <IONode x={50} y={50} text="Input" />
-                    <PatternNode x={50} y={150} />
-                    <ValueNode x={50} y={250} text="f" />
-
-                    <ArrowLine source={[100, 50]} dest={[300, 130]} />
-                    <ArrowLine source={[100, 250]} dest={[300, 170]} />
-
-                    <ArrowLine source={[550, 50]} dest={[350, 130]} />
-                    <ArrowLine source={[550, 250]} dest={[350, 170]} />
-
-                    <ArrowLine source={[300, 130]} dest={[100, 50]} />
-                    <ArrowLine source={[300, 170]} dest={[100, 250]} />
-
-                    <ArrowLine source={[350, 130]} dest={[550, 50]} />
-                    <ArrowLine source={[350, 170]} dest={[550, 250]} />
-
-                    <ArrowLine source={[325, 50]} dest={[330, 250]} />
-                    <ArrowLine source={[100, 300]} dest={[300, 380]} withHead={false} />
+                    <NodesLayer nodes={graph.nodes} setInputPos={setInputPos} setOutputPos={setOutputPos} />
+                    <ArrowLayer nodes={graph.nodes} inputPos={inputPos} outputPos={outputPos} />
                 </svg>
             </div>
         </React.Fragment>

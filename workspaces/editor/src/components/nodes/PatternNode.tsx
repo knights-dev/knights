@@ -2,6 +2,8 @@
 import { jsx } from '@emotion/core';
 import React from 'react';
 
+import { EventLayout } from '../struct';
+
 type Props = {
     x: number;
     y: number;
@@ -11,11 +13,14 @@ type Props = {
     strokeWidth?: number;
     width?: number;
     height?: number;
+
+    onLayout: EventLayout;
 };
 
 const PatternNode = ({
     x,
     y,
+    onLayout,
     height = 30,
     width = 60,
     fillColor = 'transparent',
@@ -30,12 +35,10 @@ const PatternNode = ({
     ];
     const pointsText = points.map(p => p.join(',')).join(' ');
 
-    /*
-    const nodeProp = {
-        inputPoint:[x - width/2 , y],
-        outputPoint:[x + width/2 , y]
-    }
-    */
+    onLayout({
+        inputPoint: [[x - width / 2, y]],
+        outputPoint: [x + width / 2, y],
+    });
 
     return (
         <React.Fragment>
