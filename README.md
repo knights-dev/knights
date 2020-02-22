@@ -7,7 +7,7 @@ Functional visual programming environment
 ## Requirements
 
 - yarn
-- Rust
+- Rust (1.41 or later)
 - (If you use Windows, install [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/#) manually)
 
 ## Install dependencies
