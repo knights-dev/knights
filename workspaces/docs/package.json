@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "gatsby build"
+  },
   "dependencies": {
     "gatsby": "^2.19.19"
   },
