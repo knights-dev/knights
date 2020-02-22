@@ -1,0 +1,10 @@
+{
+  "name": "@knights-dev/docs",
+  "description": "Knights Docs",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}
