@@ -1,0 +1,45 @@
+{
+  "name": "@knights-dev/docs",
+  "private": true,
+  "description": "Knights Docs",
+  "version": "0.1.0",
+  "author": "0918nobita",
+  "dependencies": {
+    "gatsby": "^2.19.7",
+    "gatsby-image": "^2.2.39",
+    "gatsby-plugin-manifest": "^2.2.39",
+    "gatsby-plugin-offline": "^3.0.32",
+    "gatsby-plugin-react-helmet": "^3.1.21",
+    "gatsby-plugin-sharp": "^2.4.3",
+    "gatsby-source-filesystem": "^2.1.46",
+    "gatsby-transformer-sharp": "^2.3.13",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.4",
+    "@types/react-helmet": "^5.0.15",
+    "@types/vfile-message": "^2.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "gatsby-plugin-typescript": "^2.1.27",
+    "prettier": "^1.19.1",
+    "typescript": "^3.8.2"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "lint:ts": "eslint ./src/**/*.tsx",
+    "lint:js": "prettier --check ./*.js",
+    "lint:js:fix": "prettier --write ./*.js",
+    "format": "yarn lint:ts --fix && yarn lint:js:fix",
+    "typecheck": "tsc --noEmit"
+  }
+}

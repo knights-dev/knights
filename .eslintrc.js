@@ -21,7 +21,7 @@ module.exports = {
         },
         ecmaVersion: 2018,
         sourceType: 'module',
-        project: './tsconfig.json',
+        project: './workspaces/*/tsconfig.json',
         tsconfigRootDir: __dirname,
         useJSXTextNode: true,
     },
