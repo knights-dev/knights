@@ -20,6 +20,15 @@ pub enum Expr {
     Lit(Lit),
 }
 
+/// Typed AST.
+/// This AST is used by the node editor for
+/// telling users informations abount types.
+#[derive(Clone, Debug)]
+pub struct TypedExpr {
+    pub expr: Expr,
+    pub ty: Type,
+}
+
 /// Types
 #[derive(Clone, Debug)]
 pub enum Type {
