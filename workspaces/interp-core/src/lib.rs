@@ -1,6 +1,7 @@
 pub mod syntax;
 pub mod error;
 pub mod typing;
+pub mod reduction;
 
 pub fn add(lhs: i32, rhs: i32) -> i32 {
     lhs + rhs
