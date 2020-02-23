@@ -25,7 +25,7 @@ pub enum Expr {
 /// telling users informations abount types.
 #[derive(Clone, Debug)]
 pub struct TypedExpr {
-    pub expr: Expr,
+    pub expr: Box<TypedExpr>,
     pub ty: Type,
 }
 
