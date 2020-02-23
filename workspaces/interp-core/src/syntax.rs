@@ -24,9 +24,9 @@ pub enum Expr {
 /// This AST is used by the node editor for
 /// telling users informations abount types.
 #[derive(Clone, Debug)]
-pub struct TypedExpr {
-    pub expr: Box<TypedExpr>,
-    pub ty: Type,
+pub enum TypedExpr {
+    TENode(Type, Box<TypedExpr>),
+    TELeaf(Type, Expr),
 }
 
 /// Types
