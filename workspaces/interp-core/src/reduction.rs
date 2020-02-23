@@ -1,7 +1,7 @@
 //! Reduction.
 
-use crate::syntax::*;
 use crate::error::*;
+use crate::syntax::*;
 
 impl Expr {
     ///Reduce an AST at one step.
