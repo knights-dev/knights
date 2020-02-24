@@ -2,13 +2,12 @@
 
 /// Errors in typing.
 #[derive(Debug, Clone, PartialEq)]
-pub enum TypingError {
-    UnificationFailed,
-    OccursCheckFailed,
+pub enum TypeError {
+    TypeErrorPLACEHOLDER,
 }
 
 /// Errors in reduction.
 #[derive(Debug, Clone, PartialEq)]
 pub enum ReductionError {
-    SomethingWrong,
+    ReductionErrorPLACEHOLDER,
 }
