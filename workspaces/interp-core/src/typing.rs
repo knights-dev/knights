@@ -4,11 +4,11 @@ use crate::error::*;
 use crate::syntax::*;
 
 impl Expr {
-    /// Solve a type of the expression.
+    /// Infer a type of the expression.
     pub fn infer(&self) -> Result<TypedExpr, TypeError> {
-        Ok(TypedExpr::TELeaf(
+        Ok(TypedExpr::TEVar(
             Type::TyCon("Foo".to_string()),
-            self.clone(),
+            42, // this value is a placeholder
         ))
     }
 }

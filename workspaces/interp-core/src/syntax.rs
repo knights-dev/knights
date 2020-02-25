@@ -25,8 +25,10 @@ pub enum Expr {
 /// telling users informations abount types.
 #[derive(Clone, Debug)]
 pub enum TypedExpr {
-    TENode(Type, Box<TypedExpr>),
-    TELeaf(Type, Expr),
+    TEApp(Type, Box<TypedExpr>, Box<TypedExpr>),
+    TELam(Type, VarId, Box<TypedExpr>),
+    TEVar(Type, VarId),
+    TELit(Type, Lit),
 }
 
 /// Types
