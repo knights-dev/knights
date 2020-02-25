@@ -20,6 +20,17 @@ pub enum Expr {
     Lit(Lit),
 }
 
+/// Typed AST.
+/// This AST is used by the node editor for
+/// telling users informations abount types.
+#[derive(Clone, Debug)]
+pub enum TypedExpr {
+    TEApp(Type, Box<TypedExpr>, Box<TypedExpr>),
+    TELam(Type, VarId, Box<TypedExpr>),
+    TEVar(Type, VarId),
+    TELit(Type, Lit),
+}
+
 /// Types
 #[derive(Clone, Debug)]
 pub enum Type {
