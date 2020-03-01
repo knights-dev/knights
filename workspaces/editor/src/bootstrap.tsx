@@ -23,15 +23,15 @@ ReactDOM.render(
     document.getElementById('app')!
 );
 
-const subject = new Subject<number>();
+const errorSubject = new Subject<Error>();
 
-subject.subscribe({
-    next(value: number) {
-        console.log(`Received: ${value}`);
+errorSubject.subscribe({
+    next(err: Error) {
+        console.error(err);
     },
 });
 
 import('../interp-wasm').then(module => {
-    module.greet('Rust');
-    module.apply((n: number) => subject.next(n));
+    const error = (err: Error): void => errorSubject.next(err);
+    module.exec(error, JSON.stringify({ _type: 'lit_int', val: 42 }));
 });
