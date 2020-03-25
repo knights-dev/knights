@@ -949,12 +949,12 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@fleur/fleur@1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@fleur/fleur/-/fleur-1.4.0.tgz#0a8858ad987f3ec08e24d34695874ae2ab497c51"
-  integrity sha512-k1lBCCD1kv1c1p4bFmr8chUGf4Rt9L7wrb4DT/iTsomT0wwnQ7XAozKOXNVh+nmxZudtVMzwGJ1uUpV5qK5F5w==
+"@fleur/fleur@1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@fleur/fleur/-/fleur-1.4.1.tgz#3a30228fdc38c59a73e35c1c556c6228d371f23a"
+  integrity sha512-YMNUJ69Hk/0Qx4w/5LIkUdXIosq17BOKI9NTE+oVtNVVMp6gZhs9/VSMN8Bd6khu6popSbkcRA79vuXaBk6nPg==
   dependencies:
-    immer "^4.0.0"
+    immer "^5.0.0"
     invariant "^2.2.4"
 
 "@fleur/react@3.2.0":
@@ -4028,10 +4028,10 @@ ignore@^5.1.4:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.1.4.tgz#84b7b3dbe64552b6ef0eca99f6743dbec6d97adf"
   integrity sha512-MzbUSahkTW1u7JpKKjY7LCARd1fU5W2rLdxlM4kdkayuCwZImjkpluF9CM1aLewYJguPDqewLam18Y6AU69A8A==
 
-immer@^4.0.0:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/immer/-/immer-4.0.2.tgz#9ff0fcdf88e06f92618a5978ceecb5884e633559"
-  integrity sha512-Q/tm+yKqnKy4RIBmmtISBlhXuSDrB69e9EKTYiIenIKQkXBQir43w+kN/eGiax3wt1J0O1b2fYcNqLSbEcXA7w==
+immer@^5.0.0:
+  version "5.3.6"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-5.3.6.tgz#51eab8cbbeb13075fe2244250f221598818cac04"
+  integrity sha512-pqWQ6ozVfNOUDjrLfm4Pt7q4Q12cGw2HUZgry4Q5+Myxu9nmHRkWBpI0J4+MK0AxbdFtdMTwEGVl7Vd+vEiK+A==
 
 import-fresh@^3.0.0, import-fresh@^3.1.0:
   version "3.2.1"
