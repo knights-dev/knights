@@ -44,7 +44,7 @@ export const Editor = (): JSX.Element => {
                     let prevY = event.clientY;
 
                     return mouseMove$.pipe(
-                        map(moveEvent => {
+                        map((moveEvent) => {
                             moveEvent.preventDefault();
 
                             const delta = { dx: moveEvent.clientX - prevX, dy: moveEvent.clientY - prevY };
@@ -69,8 +69,8 @@ export const Editor = (): JSX.Element => {
         );
 
         const zoom$: Observable<State> = fromEvent<WheelEvent>(svgElement, 'wheel').pipe(
-            filter(event => event.deltaY !== 0),
-            map(event => {
+            filter((event) => event.deltaY !== 0),
+            map((event) => {
                 event.preventDefault();
 
                 // relative position
@@ -98,7 +98,7 @@ export const Editor = (): JSX.Element => {
             })
         );
 
-        const stateSubscription = merge(drag$, zoom$).subscribe(state => state$.next(state));
+        const stateSubscription = merge(drag$, zoom$).subscribe((state) => state$.next(state));
 
         return (): void => {
             viewboxSubscription.unsubscribe();
