@@ -33,11 +33,11 @@ const NodesLayer = ({ nodes, setInputPos, setOutputPos }: Props): JSX.Element =>
     for (const node of nodes) {
         const nodeId = node.id;
         const onLayout = (e: NodeLayoutInfo): void => {
-            setInputPos(inputPos => {
+            setInputPos((inputPos) => {
                 inputPos.set(nodeId, e.inputPoint);
                 return inputPos;
             });
-            setOutputPos(outputPos => {
+            setOutputPos((outputPos) => {
                 outputPos.set(nodeId, e.outputPoint);
                 return outputPos;
             });

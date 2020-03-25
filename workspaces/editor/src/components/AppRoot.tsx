@@ -18,7 +18,7 @@ export const AppRoot = (): JSX.Element => {
         context.executeOperation(counterOps.decrease, 1);
     }, []);
 
-    const count = useStore(getStore => {
+    const count = useStore((getStore) => {
         return selectCount(getStore);
     });
 
