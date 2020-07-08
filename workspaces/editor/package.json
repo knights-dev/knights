@@ -47,7 +47,7 @@
     "stylelint": "13.6.1",
     "stylelint-config-standard": "20.0.0",
     "stylelint-scss": "3.18.0",
-    "ts-loader": "7.0.5",
+    "ts-loader": "8.0.0",
     "typescript": "3.9.5",
     "wasm-pack": "0.9.1",
     "webpack": "4.43.0",
