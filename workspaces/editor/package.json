@@ -22,7 +22,7 @@
     "@fleur/react": "3.3.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "rxjs": "6.6.0"
+    "rxjs": "6.6.2"
   },
   "devDependencies": {
     "@babel/core": "7.10.5",
