@@ -17,7 +17,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@emotion/core": "10.0.34",
+    "@emotion/core": "10.0.35",
     "@fleur/fleur": "1.4.1",
     "@fleur/react": "3.3.0",
     "react": "16.13.1",
