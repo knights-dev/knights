@@ -1286,10 +1286,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@fleur/fleur@1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@fleur/fleur/-/fleur-1.4.1.tgz#3a30228fdc38c59a73e35c1c556c6228d371f23a"
-  integrity sha512-YMNUJ69Hk/0Qx4w/5LIkUdXIosq17BOKI9NTE+oVtNVVMp6gZhs9/VSMN8Bd6khu6popSbkcRA79vuXaBk6nPg==
+"@fleur/fleur@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@fleur/fleur/-/fleur-1.5.0.tgz#a1089df8bc5f0d32fe42a36faf54038670bbada0"
+  integrity sha512-9M/WLhwUXPA+KicP6YppzxFejF/gbCW5pKBYbfuMYcgsilpQ8kRfnYI7cW2T/Ql4qOIyzuwkh4sgJkA86j4JUg==
   dependencies:
     immer "^5.0.0"
     invariant "^2.2.4"
