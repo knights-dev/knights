@@ -1298,10 +1298,10 @@
     immer "^5.0.0"
     invariant "^2.2.4"
 
-"@fleur/react@3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@fleur/react/-/react-3.3.0.tgz#7a07abcbd8317829f357497730034ce3989c910f"
-  integrity sha512-7FIrNUwsin1VtNMm19AJpOZgJq49QbIaui/aoIoZqemAI6gvq92PKbtpNOOAamnKAOkDWeGb3xDa2wRZzjDllQ==
+"@fleur/react@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@fleur/react/-/react-4.0.0.tgz#961ac9d31a3b6980381f16ba6167d8d66c256d96"
+  integrity sha512-tIRVPkkFwcrT8SYZzXhZZjt5rSZ5ibFOiaiR/3VzkRWtwgpMCGRlArxvfHtceryqdRVCXk2h+wvErmPmRAH7iQ==
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
