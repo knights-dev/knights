@@ -1,5 +1,21 @@
 {
-  "extends": [
-    "config:base"
-  ]
+    "extends": ["config:base"],
+    "timezone": "Asia/Tokyo",
+    "schedule": ["every weekend"],
+    "assignees": ["@0918nobita"],
+    "labels": ["dependencies :package:"],
+    "pin": { "automerge": true },
+    "patch": { "automerge": true },
+    "lockFileMaintenance": {
+        "enabled": true,
+        "schedule": [
+            "before 3am on Monday"
+        ]
+        },
+        "packageRules": [
+        {
+            "depTypeList": ["devDependencies"],
+            "automerge": true
+        }
+    ]
 }
