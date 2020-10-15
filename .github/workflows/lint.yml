@@ -5,16 +5,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  ensure-newline-at-eof:
-    name: Ensure newline at end of file
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Run shell script
-        run: bash ./scripts/ensure-newline-at-eof.sh
-
-  eslint-prettier:
+  lint:
     runs-on: ubuntu-latest
     name: Check code formatting
     steps:
