@@ -20,8 +20,8 @@
     "@emotion/core": "10.0.35",
     "@fleur/fleur": "1.6.0",
     "@fleur/react": "4.0.0",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "rxjs": "6.6.3"
   },
   "devDependencies": {
