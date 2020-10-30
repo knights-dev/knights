@@ -983,10 +983,10 @@
     immer "^5.0.0"
     invariant "^2.2.4"
 
-"@fleur/react@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@fleur/react/-/react-4.0.0.tgz#961ac9d31a3b6980381f16ba6167d8d66c256d96"
-  integrity sha512-tIRVPkkFwcrT8SYZzXhZZjt5rSZ5ibFOiaiR/3VzkRWtwgpMCGRlArxvfHtceryqdRVCXk2h+wvErmPmRAH7iQ==
+"@fleur/react@4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@fleur/react/-/react-4.0.1.tgz#fb5068d4dc7d84439222811c836e8e66f0f39ef8"
+  integrity sha512-8r+G9aK2bk6ckyNRfIUPxGMEPsxPl1EKkQqtjZAnnKoH4LGy6lHUPA3QZZBC3+Eb9i9hHyjgfQ42bydkvnJLXw==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
