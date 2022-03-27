@@ -6,24 +6,24 @@ Functional visual programming environment
 
 ## Requirements
 
-- yarn
+- pnpm
 - Rust (1.41 or later)
 - (If you use Windows, install [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/#) manually)
 
 ## Install dependencies
 
 ```bash
-yarn
+pnpm i
 ```
 
 ## Build
 
 ```bash
-yarn build
+pnpm run build
 ```
 
 ## Serve
 
 ```bash
-yarn serve
+pnpm run serve
 ```

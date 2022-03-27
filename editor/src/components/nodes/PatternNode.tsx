@@ -33,7 +33,7 @@ const PatternNode = ({
         [x + width / 2, y + height / 2],
         [x + width / 2, y - height / 2],
     ];
-    const pointsText = points.map(p => p.join(',')).join(' ');
+    const pointsText = points.map((p) => p.join(',')).join(' ');
 
     onLayout({
         inputPoint: [[x - width / 2, y]],

@@ -1,6 +1,5 @@
 [workspace]
-
 members = [
-    "workspaces/interp-core",
-    "workspaces/interp-if",
+    "crates/interp-core",
+    "crates/interp-if",
 ]

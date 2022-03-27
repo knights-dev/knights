@@ -1,4 +1,5 @@
 module.exports = {
+    ignorePatterns: ['dist', 'interp-wasm'],
     env: {
         browser: true,
         es6: true,
@@ -6,7 +7,7 @@ module.exports = {
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
-        'prettier/@typescript-eslint',
+        'prettier',
         'plugin:prettier/recommended',
         'plugin:react/recommended',
     ],
@@ -33,7 +34,7 @@ module.exports = {
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
 
-        'simple-import-sort/sort': [
+        'simple-import-sort/imports': [
             'error',
             {
                 groups: [

@@ -38,26 +38,24 @@ export const Editor = (): JSX.Element => {
         const drag$: Observable<State> = fromEvent<MouseEvent>(svgElement, 'mousedown').pipe(
             tap((event: MouseEvent) => event.preventDefault()),
             filter((event: MouseEvent) => event.shiftKey),
-            switchMap(
-                (event: MouseEvent): Observable<{ dx: number; dy: number }> => {
-                    let prevX = event.clientX;
-                    let prevY = event.clientY;
+            switchMap((event: MouseEvent): Observable<{ dx: number; dy: number }> => {
+                let prevX = event.clientX;
+                let prevY = event.clientY;
 
-                    return mouseMove$.pipe(
-                        map((moveEvent) => {
-                            moveEvent.preventDefault();
+                return mouseMove$.pipe(
+                    map((moveEvent) => {
+                        moveEvent.preventDefault();
 
-                            const delta = { dx: moveEvent.clientX - prevX, dy: moveEvent.clientY - prevY };
+                        const delta = { dx: moveEvent.clientX - prevX, dy: moveEvent.clientY - prevY };
 
-                            prevX = moveEvent.clientX;
-                            prevY = moveEvent.clientY;
+                        prevX = moveEvent.clientX;
+                        prevY = moveEvent.clientY;
 
-                            return delta;
-                        }),
-                        takeUntil(mouseUp$)
-                    );
-                }
-            ),
+                        return delta;
+                    }),
+                    takeUntil(mouseUp$)
+                );
+            }),
             map(({ dx, dy }) => {
                 const { offset, scale } = state$.getValue();
 

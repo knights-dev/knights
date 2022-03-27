@@ -38,7 +38,7 @@ const IONode = ({
         [x + width / 2 + dentDepth / 2, y],
         [x + width / 2 - dentDepth / 2, y - height / 2],
     ];
-    const pointsText = points.map(p => p.join(',')).join(' ');
+    const pointsText = points.map((p) => p.join(',')).join(' ');
 
     onLayout({
         inputPoint: [points[1]],

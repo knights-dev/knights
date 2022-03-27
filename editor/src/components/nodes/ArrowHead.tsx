@@ -29,7 +29,7 @@ const ArrowHead = ({
         ny = (Math.cos(dirRadian) * triangleWidth) / 2;
 
     const points = [['M', hx, hy], ['l', -tx - nx, -ty - ny], ['l', 2 * nx, 2 * ny], ['Z']];
-    const pathDef = points.map(p => p.join(' ')).join(' ');
+    const pathDef = points.map((p) => p.join(' ')).join(' ');
 
     return (
         <React.Fragment>
