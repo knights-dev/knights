@@ -1,32 +1,30 @@
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
     ignorePatterns: ['dist', 'interp-wasm'],
+
     env: {
-        browser: true,
         es6: true,
+        browser: true,
+        node: true,
     },
-    extends: [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
-        'prettier',
-        'plugin:prettier/recommended',
-        'plugin:react/recommended',
-    ],
+
+    extends: ['eslint:recommended', 'prettier', 'plugin:prettier/recommended'],
+
     globals: {
         Atomics: 'readonly',
         SharedArrayBuffer: 'readonly',
     },
-    parser: '@typescript-eslint/parser',
+
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
         },
         ecmaVersion: 2018,
         sourceType: 'module',
-        project: './tsconfig.json',
-        tsconfigRootDir: __dirname,
-        useJSXTextNode: true,
     },
-    plugins: ['react', '@typescript-eslint', 'prettier', 'simple-import-sort'],
+
+    plugins: ['prettier', 'simple-import-sort'],
+
     rules: {
         'eol-last': ['error', 'always'],
         indent: ['error', 4, { SwitchCase: 1 }],
@@ -53,29 +51,42 @@ module.exports = {
                 ],
             },
         ],
-
-        '@typescript-eslint/explicit-function-return-type': 'error',
-        // FIXME:
-        // @emotion/core の提供する jsxFactory を使用しても
-        // no-unused-var ルールに引っかからないように適切なオプションを設定したい
-        '@typescript-eslint/no-unused-vars': [
-            'error',
-            {
-                varsIgnorePattern: '^jsx$', // jsx という変数名を一律に無視させている
-            },
-        ],
     },
+
     overrides: [
         {
+            files: ['**/*.ts', '**/*.tsx'],
+            extends: ['plugin:@typescript-eslint/recommended'],
+            plugins: ['@typescript-eslint'],
+            parser: '@typescript-eslint/parser',
+            parserOptions: {
+                project: './tsconfig.json',
+                tsconfigRootDir: __dirname,
+            },
+            rules: {
+                '@typescript-eslint/explicit-function-return-type': 'error',
+                // FIXME:
+                // @emotion/core の提供する jsxFactory を使用しても
+                // no-unused-var ルールに引っかからないように適切なオプションを設定したい
+                '@typescript-eslint/no-unused-vars': [
+                    'error',
+                    {
+                        varsIgnorePattern: '^jsx$', // jsx という変数名を一律に無視させている
+                    },
+                ],
+            },
+        },
+
+        {
             files: ['**/*.tsx'],
+            extends: ['plugin:react/recommended'],
+            plugins: ['react'],
             rules: {
                 'react/prop-types': 'off',
             },
+            settings: {
+                react: { version: 'detect' },
+            },
         },
     ],
-    settings: {
-        react: {
-            version: 'detect',
-        },
-    },
 };
