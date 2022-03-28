@@ -1,8 +1,6 @@
-/* @jsx jsx */
-import { jsx } from '@emotion/core';
 import React from 'react';
 
-import ArrowHead from './ArrowHead';
+import { ArrowHead } from './ArrowHead';
 
 type Props = {
     source: [number, number];
@@ -14,18 +12,17 @@ type Props = {
     strokeWidth?: number;
 };
 
-/*
-    左右から左右に繋ぐ線(二回曲がる)
+/**
+    左右から左右に繋ぐ線(2回曲がる)
 */
-
-const ArrowLine = ({
+export const DoubleCurvedArrowLine: React.VFC<Props> = ({
     source,
     dest,
     withHead = true,
     baseRadius = 15,
     strokeColor = 'black',
     strokeWidth = 2,
-}: Props): JSX.Element => {
+}) => {
     const [sx, sy] = source,
         [dx, dy] = dest;
 
@@ -49,11 +46,9 @@ const ArrowLine = ({
     const pathDef = points.map((p) => p.join(' ')).join(' ');
 
     return (
-        <React.Fragment>
+        <>
             <path d={pathDef} fill="none" stroke={strokeColor} strokeWidth={strokeWidth} />
             {withHead && <ArrowHead hx={dx} hy={dy} dir={0} />}
-        </React.Fragment>
+        </>
     );
 };
-
-export default React.memo(ArrowLine);

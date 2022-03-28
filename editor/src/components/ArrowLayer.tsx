@@ -1,5 +1,3 @@
-/* @jsx jsx */
-import { jsx } from '@emotion/core';
 import React from 'react';
 
 import { ArrowLine } from './nodes';
@@ -11,8 +9,9 @@ type Props = {
     outputPos: Map<NodeID, NodePosition>;
 };
 
-const PatternNode = ({ nodes, inputPos, outputPos }: Props): JSX.Element => {
+export const ArrowLayer: React.VFC<Props> = ({ nodes, inputPos, outputPos }) => {
     const arrowElements: JSX.Element[] = [];
+
     for (const node of nodes) {
         const toId = node.id;
         const destPosList = inputPos.get(toId);
@@ -36,11 +35,6 @@ const PatternNode = ({ nodes, inputPos, outputPos }: Props): JSX.Element => {
             }
         }
     }
-    return (
-        <React.Fragment>
-            <g className="layer-arrows">{arrowElements}</g>
-        </React.Fragment>
-    );
-};
 
-export default React.memo(PatternNode);
+    return <g className="layer-arrows">{arrowElements}</g>;
+};

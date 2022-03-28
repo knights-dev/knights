@@ -3,7 +3,8 @@
     "target": "es2015",
     "module": "esnext",
     "lib": ["dom", "es2015"],
-    "jsx": "react",
+    "jsx": "react-jsxdev",
+    "jsxImportSource": "@emotion/react",
     "sourceMap": true,
     "outDir": "./dist",
 

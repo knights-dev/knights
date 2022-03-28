@@ -1,5 +1,3 @@
-/* @jsx jsx */
-import { jsx } from '@emotion/core';
 import React from 'react';
 
 import { ApplyNode, IONode, ValueNode } from './nodes';
@@ -27,7 +25,7 @@ type Props = {
     setOutputPos: React.Dispatch<React.SetStateAction<Map<string, NodePosition>>>;
 };
 
-const NodesLayer = ({ nodes, setInputPos, setOutputPos }: Props): JSX.Element => {
+export const NodesLayer: React.VFC<Props> = ({ nodes, setInputPos, setOutputPos }) => {
     const nodeElements: JSX.Element[] = [];
 
     for (const node of nodes) {
@@ -45,7 +43,6 @@ const NodesLayer = ({ nodes, setInputPos, setOutputPos }: Props): JSX.Element =>
         const el = createComponent(node, onLayout);
         nodeElements.push(el);
     }
-    return <React.Fragment>{nodeElements}</React.Fragment>;
-};
 
-export default React.memo(NodesLayer);
+    return <>{nodeElements}</>;
+};

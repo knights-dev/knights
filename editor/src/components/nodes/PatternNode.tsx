@@ -1,5 +1,3 @@
-/* @jsx jsx */
-import { jsx } from '@emotion/core';
 import React from 'react';
 
 import { EventLayout } from '../struct';
@@ -17,7 +15,7 @@ type Props = {
     onLayout: EventLayout;
 };
 
-const PatternNode = ({
+export const PatternNode: React.VFC<Props> = ({
     x,
     y,
     onLayout,
@@ -26,7 +24,7 @@ const PatternNode = ({
     fillColor = 'transparent',
     strokeColor = 'red',
     strokeWidth = 2,
-}: Props): JSX.Element => {
+}) => {
     const points = [
         [x - width / 2, y - height / 2],
         [x - width / 2, y + height / 2],
@@ -40,11 +38,5 @@ const PatternNode = ({
         outputPoint: [x + width / 2, y],
     });
 
-    return (
-        <React.Fragment>
-            <polygon fill={fillColor} stroke={strokeColor} strokeWidth={strokeWidth} points={pointsText} />
-        </React.Fragment>
-    );
+    return <polygon fill={fillColor} stroke={strokeColor} strokeWidth={strokeWidth} points={pointsText} />;
 };
-
-export default React.memo(PatternNode);

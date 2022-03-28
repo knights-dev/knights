@@ -63,23 +63,11 @@ module.exports = {
                 project: './tsconfig.json',
                 tsconfigRootDir: __dirname,
             },
-            rules: {
-                '@typescript-eslint/explicit-function-return-type': 'error',
-                // FIXME:
-                // @emotion/core の提供する jsxFactory を使用しても
-                // no-unused-var ルールに引っかからないように適切なオプションを設定したい
-                '@typescript-eslint/no-unused-vars': [
-                    'error',
-                    {
-                        varsIgnorePattern: '^jsx$', // jsx という変数名を一律に無視させている
-                    },
-                ],
-            },
         },
 
         {
             files: ['**/*.tsx'],
-            extends: ['plugin:react/recommended'],
+            extends: ['plugin:react/recommended', 'plugin:react/jsx-runtime'],
             plugins: ['react'],
             rules: {
                 'react/prop-types': 'off',

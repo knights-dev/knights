@@ -9,6 +9,7 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: 'bundle.js',
     },
+    devtool: 'source-map',
     resolve: {
         extensions: ['.ts', '.tsx', '.js'],
         alias: {
@@ -25,19 +26,26 @@ module.exports = {
                 },
             },
             {
-                test: /\.scss$/,
+                test: /\.css$/,
                 exclude: /node_modules/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.wasm$/,
+                type: 'webassembly/async',
             },
         ],
+    },
+    experiments: {
+        asyncWebAssembly: true,
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'index.html'),
         }),
         new WasmPackPlugin({
-            crateDirectory: path.resolve(__dirname, '../interp-if/'),
-            outDir: '../editor/interp-wasm',
+            crateDirectory: path.resolve(__dirname, '../crates/interp-if'),
+            outDir: '../../interp-wasm',
         }),
     ],
 };

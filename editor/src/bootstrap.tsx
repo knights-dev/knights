@@ -1,8 +1,7 @@
-import './scss/editor.scss';
+import './global.css';
 
 import Fleur from '@fleur/fleur';
 import { FleurContext } from '@fleur/react';
-import React from 'react';
 import ReactDOM from 'react-dom';
 import { Subject } from 'rxjs';
 
@@ -31,7 +30,7 @@ errorSubject.subscribe({
     },
 });
 
-import('../interp-wasm').then((module) => {
+import('../../interp-wasm').then((module) => {
     const error = (err: Error): void => errorSubject.next(err);
     module.exec(error, JSON.stringify({ _type: 'lit_int', val: 42 }));
 });

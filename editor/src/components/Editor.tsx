@@ -1,11 +1,9 @@
-/* @jsx jsx */
-import { jsx } from '@emotion/core';
 import React, { createRef, useEffect, useState } from 'react';
 import { BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
 import { filter, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 
-import ArrowLayer from './ArrowLayer';
-import NodesLayer from './NodesLayer';
+import { ArrowLayer } from './ArrowLayer';
+import { NodesLayer } from './NodesLayer';
 import { Graph, NodeID, NodePosition, sampleGraph } from './struct';
 
 interface State {

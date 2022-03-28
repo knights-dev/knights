@@ -1,5 +1,3 @@
-/* @jsx jsx */
-import { jsx } from '@emotion/core';
 import React from 'react';
 
 type Props = {
@@ -13,7 +11,7 @@ type Props = {
     triangleWidth?: number;
 };
 
-const ArrowHead = ({
+export const ArrowHead: React.VFC<Props> = ({
     hx,
     hy,
     dir,
@@ -21,7 +19,7 @@ const ArrowHead = ({
     triangleWidth = 10,
     strokeColor = 'black',
     strokeWidth = 2,
-}: Props): JSX.Element => {
+}) => {
     const dirRadian = (dir * Math.PI) / 180;
     const tx = Math.cos(dirRadian) * triangleHeight,
         ty = -Math.sin(dirRadian) * triangleHeight,
@@ -31,11 +29,5 @@ const ArrowHead = ({
     const points = [['M', hx, hy], ['l', -tx - nx, -ty - ny], ['l', 2 * nx, 2 * ny], ['Z']];
     const pathDef = points.map((p) => p.join(' ')).join(' ');
 
-    return (
-        <React.Fragment>
-            <path d={pathDef} fill="none" stroke={strokeColor} strokeWidth={strokeWidth} />
-        </React.Fragment>
-    );
+    return <path d={pathDef} fill="none" stroke={strokeColor} strokeWidth={strokeWidth} />;
 };
-
-export default React.memo(ArrowHead);

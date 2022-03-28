@@ -1,9 +1,7 @@
-/* @jsx jsx */
-import { jsx } from '@emotion/core';
 import React from 'react';
 
-import CurvedArrowLine from './CurvedArrowLine';
-import DoubleCurvedArrowLine from './DoubleCurvedArrowLine';
+import { CurvedArrowLine } from './CurvedArrowLine';
+import { DoubleCurvedArrowLine } from './DoubleCurvedArrowLine';
 
 type Props = {
     source: [number, number];
@@ -17,7 +15,5 @@ type Props = {
     horizontal?: boolean;
 };
 
-const ArrowLine = ({ horizontal, ...childProps }: Props): JSX.Element =>
+export const ArrowLine: React.VFC<Props> = ({ horizontal, ...childProps }) =>
     horizontal ? <DoubleCurvedArrowLine {...childProps} /> : <CurvedArrowLine {...childProps} />;
-
-export default React.memo(ArrowLine);

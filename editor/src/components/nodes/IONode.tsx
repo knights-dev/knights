@@ -1,5 +1,3 @@
-/* @jsx jsx */
-import { jsx } from '@emotion/core';
 import React from 'react';
 
 import { EventLayout, NodePosition } from '../struct';
@@ -18,7 +16,7 @@ type Props = {
     onLayout: EventLayout;
 };
 
-const IONode = ({
+export const IONode: React.VFC<Props> = ({
     x,
     y,
     onLayout,
@@ -29,7 +27,7 @@ const IONode = ({
     fillColor = 'transparent',
     strokeColor = 'red',
     strokeWidth = 2,
-}: Props): JSX.Element => {
+}) => {
     const points: NodePosition[] = [
         [x - width / 2 - dentDepth / 2, y - height / 2],
         [x - width / 2 + dentDepth / 2, y],
@@ -46,13 +44,11 @@ const IONode = ({
     });
 
     return (
-        <React.Fragment>
+        <>
             <polygon fill={fillColor} stroke={strokeColor} strokeWidth={strokeWidth} points={pointsText} />
             <text x={x} y={y} textAnchor="middle" dominantBaseline="middle" className="node-text">
                 {text}
             </text>
-        </React.Fragment>
+        </>
     );
 };
-
-export default React.memo(IONode);

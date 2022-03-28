@@ -1,7 +1,6 @@
-/* @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/react';
 import { useFleurContext, useStore } from '@fleur/react';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 
 import { counterOps } from '../domains/counter/operations';
 import { selectCount } from '../domains/counter/selectors';
@@ -23,7 +22,7 @@ export const AppRoot = (): JSX.Element => {
     });
 
     return (
-        <React.Fragment>
+        <>
             <p
                 css={css`
                     color: #088;
@@ -34,6 +33,6 @@ export const AppRoot = (): JSX.Element => {
             <button onClick={inc}>inc</button>
             <button onClick={dec}>dec</button>
             <Editor />
-        </React.Fragment>
+        </>
     );
 };
