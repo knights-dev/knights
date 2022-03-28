@@ -1,8 +1,9 @@
-import React, { createRef, useEffect, useState } from 'react';
+import { createRef, useEffect, useState } from 'react';
 import { BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
 import { filter, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 
 import { ArrowLayer } from './ArrowLayer';
+import styles from './Editor.module.scss';
 import { NodesLayer } from './NodesLayer';
 import { Graph, NodeID, NodePosition, sampleGraph } from './struct';
 
@@ -108,13 +109,11 @@ export const Editor = (): JSX.Element => {
     const [outputPos, setOutputPos] = useState<Map<NodeID, NodePosition>>(new Map());
 
     return (
-        <React.Fragment>
-            <div className="editor-container">
-                <svg ref={ref} className="editor-screen">
-                    <NodesLayer nodes={graph.nodes} setInputPos={setInputPos} setOutputPos={setOutputPos} />
-                    <ArrowLayer nodes={graph.nodes} inputPos={inputPos} outputPos={outputPos} />
-                </svg>
-            </div>
-        </React.Fragment>
+        <div className={styles.container}>
+            <svg ref={ref} className={styles.screen}>
+                <NodesLayer nodes={graph.nodes} setInputPos={setInputPos} setOutputPos={setOutputPos} />
+                <ArrowLayer nodes={graph.nodes} inputPos={inputPos} outputPos={outputPos} />
+            </svg>
+        </div>
     );
 };

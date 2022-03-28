@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "pnpm run build --filter @knights-dev/node-editor",
-    "serve": "pnpm run serve --filter @knights-dev/node-editor",
+    "dev": "pnpm run dev --filter @knights-dev/node-editor",
     "format": "pnpm run format --filter @knights-dev/node-editor",
     "lint": "pnpm run lint --filter @knights-dev/node-editor"
   },

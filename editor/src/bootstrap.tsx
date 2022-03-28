@@ -1,5 +1,3 @@
-import './global.css';
-
 import Fleur from '@fleur/fleur';
 import { FleurContext } from '@fleur/react';
 import ReactDOM from 'react-dom';

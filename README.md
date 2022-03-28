@@ -18,12 +18,27 @@ pnpm i
 
 ## Build
 
+### Development mode
+
 ```bash
 pnpm run build
 ```
 
-## Serve
+### Production mode
 
 ```bash
-pnpm run serve
+NODE_ENV=production pnpm run build
+```
+
+### Serve pre-built assets
+
+```bash
+pnpm i -g serve
+serve editor/dist
+```
+
+## Launch dev server
+
+```bash
+pnpm run dev
 ```

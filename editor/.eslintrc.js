@@ -32,25 +32,7 @@ module.exports = {
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
 
-        'simple-import-sort/imports': [
-            'error',
-            {
-                groups: [
-                    // Side effect imports.
-                    ['^\\u0000'],
-                    // Packages.
-                    // Things that start with a letter (or digit or underscore), or `@` followed by a letter.
-                    ['^@?\\w'],
-                    // Anything that does not start with a dot.
-                    ['^[^.]'],
-                    //  Absolute imports.
-                    ['^src/'],
-                    // Relative imports.
-                    // Anything that starts with a dot.
-                    ['^\\.'],
-                ],
-            },
-        ],
+        'simple-import-sort/imports': 'error',
     },
 
     overrides: [

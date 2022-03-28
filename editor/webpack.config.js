@@ -2,14 +2,16 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WasmPackPlugin = require('@wasm-tool/wasm-pack-plugin');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 module.exports = {
-    mode: process.env.NODE_ENV || 'development',
+    mode: isProduction ? 'production' : 'development',
     entry: './src/bootstrap.tsx',
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'bundle.js',
     },
-    devtool: 'source-map',
+    devtool: !isProduction && 'source-map',
     resolve: {
         extensions: ['.ts', '.tsx', '.js'],
         alias: {
@@ -23,12 +25,18 @@ module.exports = {
                 exclude: /node_modules/,
                 use: {
                     loader: 'ts-loader',
+                    options: {
+                        transpileOnly: !isProduction,
+                        compilerOptions: {
+                            jsx: isProduction ? 'react-jsx' : 'react-jsxdev',
+                        },
+                    },
                 },
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 exclude: /node_modules/,
-                use: ['style-loader', 'css-loader'],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.wasm$/,
