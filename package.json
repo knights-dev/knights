@@ -1,8 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "build": "pnpm run build --filter @knights-dev/node-editor",
-    "dev": "pnpm run dev --filter @knights-dev/node-editor",
+    "build:wasm": "wasm-pack build ./crates/interp-if --out-dir ../../interp-wasm --target web",
+    "build:editor": "pnpm run build --filter @knights-dev/node-editor",
+    "build": "run-s build:wasm build:other",
+    "dev:editor": "pnpm run dev --filter @knights-dev/node-editor",
+    "dev": "run-s build:wasm dev:editor",
     "format": "pnpm run format --filter @knights-dev/node-editor",
     "lint": "pnpm run lint --filter @knights-dev/node-editor"
   },
@@ -10,5 +13,8 @@
     "overrides": {
       "immer@<9.0.6": ">=9.0.6"
     }
+  },
+  "devDependencies": {
+    "npm-run-all": "4.1.5"
   }
 }

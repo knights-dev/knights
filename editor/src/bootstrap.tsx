@@ -1,7 +1,6 @@
 import Fleur from '@fleur/fleur';
 import { FleurContext } from '@fleur/react';
 import ReactDOM from 'react-dom';
-import { Subject } from 'rxjs';
 
 import { AppRoot } from './components/AppRoot';
 import { store } from './domains/counter/store';
@@ -19,16 +18,3 @@ ReactDOM.render(
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     document.getElementById('app')!
 );
-
-const errorSubject = new Subject<Error>();
-
-errorSubject.subscribe({
-    next(err: Error) {
-        console.error(err);
-    },
-});
-
-import('../../interp-wasm').then((module) => {
-    const error = (err: Error): void => errorSubject.next(err);
-    module.exec(error, JSON.stringify({ _type: 'lit_int', val: 42 }));
-});

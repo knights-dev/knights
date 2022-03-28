@@ -1,12 +1,33 @@
 import { css } from '@emotion/react';
 import { useFleurContext, useStore } from '@fleur/react';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
+import { Subject } from 'rxjs';
 
+import init, { exec } from '../../../interp-wasm';
 import { counterOps } from '../domains/counter/operations';
 import { selectCount } from '../domains/counter/selectors';
 import { Editor } from './Editor';
 
-export const AppRoot = (): JSX.Element => {
+export const AppRoot: React.VFC = () => {
+    useEffect(() => {
+        const errorSubject = new Subject<Error>();
+
+        const subscription = errorSubject.subscribe({
+            next(err: Error) {
+                console.error(err);
+            },
+        });
+
+        init().then(() => {
+            const error = (err: Error): void => errorSubject.next(err);
+            exec(error, JSON.stringify({ _type: 'lit_int', val: 42 }));
+        });
+
+        return () => {
+            subscription.unsubscribe();
+        };
+    }, []);
+
     const context = useFleurContext();
 
     const inc = useCallback(() => {

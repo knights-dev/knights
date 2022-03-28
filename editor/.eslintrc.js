@@ -1,6 +1,6 @@
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
-    ignorePatterns: ['dist', 'interp-wasm'],
+    ignorePatterns: ['dist'],
 
     env: {
         es6: true,
