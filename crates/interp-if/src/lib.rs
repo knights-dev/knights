@@ -1,10 +1,4 @@
-extern crate interp_core;
-extern crate js_sys;
-#[macro_use]
-extern crate serde_derive;
-extern crate serde_json;
-extern crate wasm_bindgen;
-
+use serde::Deserialize;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
