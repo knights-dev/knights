@@ -33,7 +33,7 @@ importers:
       react: 17.0.2
       react-dom: 17.0.2
       rxjs: 7.5.5
-      sass: 1.49.10
+      sass: 1.49.11
       stylelint: 14.6.1
       stylelint-config-standard-scss: 3.0.0
       typed-scss-modules: 6.2.0
@@ -61,12 +61,12 @@ importers:
       npm-run-all: 4.1.5
       postcss: 8.4.12
       prettier: 2.6.1
-      sass: 1.49.10
+      sass: 1.49.11
       stylelint: 14.6.1
       stylelint-config-standard-scss: 3.0.0_postcss@8.4.12+stylelint@14.6.1
-      typed-scss-modules: 6.2.0_sass@1.49.10
+      typed-scss-modules: 6.2.0_sass@1.49.11
       typescript: 4.6.3
-      vite: 2.9.1_sass@1.49.10
+      vite: 2.9.1_sass@1.49.11
 
 packages:
 
@@ -2779,8 +2779,8 @@ packages:
   /safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
 
-  /sass/1.49.10:
-    resolution: {integrity: sha512-w37zfWJwKu4I78U4z63u1mmgoncq+v3iOB4yzQMPyAPVHHawaQSnu9C9ysGQnZEhW609jkcLioJcMCqm75JMdg==}
+  /sass/1.49.11:
+    resolution: {integrity: sha512-wvS/geXgHUGs6A/4ud5BFIWKO1nKd7wYIGimDk4q4GFkJicILActpv9ueMT4eRGSsp1BdKHuw1WwAHXbhsJELQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
@@ -3209,7 +3209,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /typed-scss-modules/6.2.0_sass@1.49.10:
+  /typed-scss-modules/6.2.0_sass@1.49.11:
     resolution: {integrity: sha512-2OrxgivyfWZvXZ3LkFljBN8x5kzPVI8xKJxEkfNNcEkyPpVp60msl5O44UAYUgLN3O2rO41fWuLJsc2f1NCBmQ==}
     hasBin: true
     peerDependencies:
@@ -3231,7 +3231,7 @@ packages:
       joycon: 3.1.1
       param-case: 3.0.4
       reserved-words: 0.1.2
-      sass: 1.49.10
+      sass: 1.49.11
       slash: 3.0.0
       yargs: 17.4.0
     dev: true
@@ -3272,7 +3272,7 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite/2.9.1_sass@1.49.10:
+  /vite/2.9.1_sass@1.49.11:
     resolution: {integrity: sha512-vSlsSdOYGcYEJfkQ/NeLXgnRv5zZfpAsdztkIrs7AZHV8RCMZQkwjo4DS5BnrYTqoWqLoUe1Cah4aVO4oNNqCQ==}
     engines: {node: '>=12.2.0'}
     hasBin: true
@@ -3292,7 +3292,7 @@ packages:
       postcss: 8.4.12
       resolve: 1.22.0
       rollup: 2.70.1
-      sass: 1.49.10
+      sass: 1.49.11
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
