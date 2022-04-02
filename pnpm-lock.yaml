@@ -15,7 +15,7 @@ importers:
     specifiers:
       '@babel/core': 7.17.8
       '@emotion/react': 11.8.2
-      '@fleur/fleur': 3.0.1
+      '@fleur/fleur': 3.1.0
       '@fleur/react': 5.0.2
       '@types/react': 17.0.43
       '@types/react-dom': 17.0.14
@@ -41,8 +41,8 @@ importers:
       vite: 2.9.1
     dependencies:
       '@emotion/react': 11.8.2_c1cf67fb40c16c390126f300fc197413
-      '@fleur/fleur': 3.0.1
-      '@fleur/react': 5.0.2_62b6d16ae43535286f5c5b2289b59e2e
+      '@fleur/fleur': 3.1.0
+      '@fleur/react': 5.0.2_af29a198ca2f5a6a7947c0b87b0b415f
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       rxjs: 7.5.5
@@ -443,21 +443,21 @@ packages:
       - supports-color
     dev: true
 
-  /@fleur/fleur/3.0.1:
-    resolution: {integrity: sha512-0hc3XRQn4+IFyIp6J+hqIKqifOHgB0IYRrsAattqd6L9YB/Ar6/2nxpjlFtb5wz1q9VdU8m0ZsdeI2MIeQHXiA==}
+  /@fleur/fleur/3.1.0:
+    resolution: {integrity: sha512-F0r9797uh7GL8b7bImR8KZqN2Fy7HVsQW7o6ebSDlYnqSCVVGRoamzv2oGmc7h/qkRZ5GWPSjnIjSNOPfLkwYw==}
     dependencies:
       immer: 9.0.12
       invariant: 2.2.4
     dev: false
 
-  /@fleur/react/5.0.2_62b6d16ae43535286f5c5b2289b59e2e:
+  /@fleur/react/5.0.2_af29a198ca2f5a6a7947c0b87b0b415f:
     resolution: {integrity: sha512-0JOUKdlceRPWNsO1NHqLudJQPqQWVVDCFJwch1U0pFAvdBJDz870W9NjQEbKM01w0On1JAhvuQe5uVhA+CbmdA==}
     peerDependencies:
       '@fleur/fleur': 3.x.x
       react: '>= 16.8.x'
       react-dom: '>= 16.8.x'
     dependencies:
-      '@fleur/fleur': 3.0.1
+      '@fleur/fleur': 3.1.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     dev: false
