@@ -30,8 +30,8 @@ importers:
       npm-run-all: 4.1.5
       postcss: 8.4.12
       prettier: 2.6.1
-      react: 17.0.2
-      react-dom: 17.0.2
+      react: 18.0.0
+      react-dom: 18.0.0
       rxjs: 7.5.5
       sass: 1.49.11
       stylelint: 14.6.1
@@ -40,11 +40,11 @@ importers:
       typescript: 4.6.3
       vite: 2.9.1
     dependencies:
-      '@emotion/react': 11.8.2_c1cf67fb40c16c390126f300fc197413
+      '@emotion/react': 11.8.2_01d56d277bbc737f671dd85124c7a696
       '@fleur/fleur': 3.1.0
-      '@fleur/react': 5.0.2_af29a198ca2f5a6a7947c0b87b0b415f
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
+      '@fleur/react': 5.0.2_4c59d80622a98cebc98f489eacc84cb5
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
       rxjs: 7.5.5
     devDependencies:
       '@babel/core': 7.17.8
@@ -376,7 +376,7 @@ packages:
     resolution: {integrity: sha512-igX9a37DR2ZPGYtV6suZ6whr8pTFtyHL3K/oLUotxpSVO2ASaprmAe2Dkq7tBo7CRY7MMDrAa9nuQP9/YG8FxQ==}
     dev: false
 
-  /@emotion/react/11.8.2_c1cf67fb40c16c390126f300fc197413:
+  /@emotion/react/11.8.2_01d56d277bbc737f671dd85124c7a696:
     resolution: {integrity: sha512-+1bcHBaNJv5nkIIgnGKVsie3otS0wF9f1T1hteF3WeVvMNQEtfZ4YyFpnphGoot3ilU/wWMgP2SgIDuHLE/wAA==}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -397,7 +397,7 @@ packages:
       '@emotion/weak-memoize': 0.2.5
       '@types/react': 17.0.43
       hoist-non-react-statics: 3.3.2
-      react: 17.0.2
+      react: 18.0.0
     dev: false
 
   /@emotion/serialize/1.0.2:
@@ -450,7 +450,7 @@ packages:
       invariant: 2.2.4
     dev: false
 
-  /@fleur/react/5.0.2_af29a198ca2f5a6a7947c0b87b0b415f:
+  /@fleur/react/5.0.2_4c59d80622a98cebc98f489eacc84cb5:
     resolution: {integrity: sha512-0JOUKdlceRPWNsO1NHqLudJQPqQWVVDCFJwch1U0pFAvdBJDz870W9NjQEbKM01w0On1JAhvuQe5uVhA+CbmdA==}
     peerDependencies:
       '@fleur/fleur': 3.x.x
@@ -458,8 +458,8 @@ packages:
       react-dom: '>= 16.8.x'
     dependencies:
       '@fleur/fleur': 3.1.0
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
     dev: false
 
   /@humanwhocodes/config-array/0.9.5:
@@ -2321,6 +2321,7 @@ packages:
   /object-assign/4.1.1:
     resolution: {integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /object-inspect/1.12.0:
     resolution: {integrity: sha512-Ho2z80bVIvJloH+YzRmpZVQe87+qASmBUKZDWgx9cu+KDrX2ZDH/3tMy+gXbZETVGs2M8YdxObOh7XAtim9Y0g==}
@@ -2619,15 +2620,14 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /react-dom/17.0.2_react@17.0.2:
-    resolution: {integrity: sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==}
+  /react-dom/18.0.0_react@18.0.0:
+    resolution: {integrity: sha512-XqX7uzmFo0pUceWFCt7Gff6IyIMzFUn7QMZrbrQfGxtaxXZIcGQzoNpRLE3fQLnS4XzLLPMZX2T9TRcSrasicw==}
     peerDependencies:
-      react: 17.0.2
+      react: ^18.0.0
     dependencies:
       loose-envify: 1.4.0
-      object-assign: 4.1.1
-      react: 17.0.2
-      scheduler: 0.20.2
+      react: 18.0.0
+      scheduler: 0.21.0
     dev: false
 
   /react-is/16.13.1:
@@ -2638,12 +2638,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react/17.0.2:
-    resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
+  /react/18.0.0:
+    resolution: {integrity: sha512-x+VL6wbT4JRVPm7EGxXhZ8w8LTROaxPXOqhlGyVSrv0sB1jkyFGgXxJ8LVoPRLvPR6/CIZGFmfzqUa2NYeMr2A==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-      object-assign: 4.1.1
     dev: false
 
   /read-pkg-up/7.0.1:
@@ -2789,11 +2788,10 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /scheduler/0.20.2:
-    resolution: {integrity: sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==}
+  /scheduler/0.21.0:
+    resolution: {integrity: sha512-1r87x5fz9MXqswA2ERLo0EbOAU74DpIUO090gIasYTqlVoJeMcl+Z1Rg7WHz+qtPujhS/hGIt9kxZOYBV3faRQ==}
     dependencies:
       loose-envify: 1.4.0
-      object-assign: 4.1.1
     dev: false
 
   /semver/5.7.1:
