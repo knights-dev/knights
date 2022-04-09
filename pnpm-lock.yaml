@@ -14,7 +14,7 @@ importers:
   editor:
     specifiers:
       '@babel/core': 7.17.9
-      '@emotion/react': 11.8.2
+      '@emotion/react': 11.9.0
       '@fleur/fleur': 3.1.0
       '@fleur/react': 5.0.2
       '@types/react': 18.0.1
@@ -40,7 +40,7 @@ importers:
       typescript: 4.6.3
       vite: 2.9.1
     dependencies:
-      '@emotion/react': 11.8.2_95155894633fe9afea63bc8a06a8d103
+      '@emotion/react': 11.9.0_95155894633fe9afea63bc8a06a8d103
       '@fleur/fleur': 3.1.0
       '@fleur/react': 5.0.2_4c59d80622a98cebc98f489eacc84cb5
       react: 18.0.0
@@ -341,7 +341,7 @@ packages:
       '@babel/runtime': 7.17.8
       '@emotion/hash': 0.8.0
       '@emotion/memoize': 0.7.5
-      '@emotion/serialize': 1.0.2
+      '@emotion/serialize': 1.0.3
       babel-plugin-macros: 2.8.0
       convert-source-map: 1.8.0
       escape-string-regexp: 4.0.0
@@ -368,8 +368,8 @@ packages:
     resolution: {integrity: sha512-igX9a37DR2ZPGYtV6suZ6whr8pTFtyHL3K/oLUotxpSVO2ASaprmAe2Dkq7tBo7CRY7MMDrAa9nuQP9/YG8FxQ==}
     dev: false
 
-  /@emotion/react/11.8.2_95155894633fe9afea63bc8a06a8d103:
-    resolution: {integrity: sha512-+1bcHBaNJv5nkIIgnGKVsie3otS0wF9f1T1hteF3WeVvMNQEtfZ4YyFpnphGoot3ilU/wWMgP2SgIDuHLE/wAA==}
+  /@emotion/react/11.9.0_95155894633fe9afea63bc8a06a8d103:
+    resolution: {integrity: sha512-lBVSF5d0ceKtfKCDQJveNAtkC7ayxpVlgOohLgXqRwqWr9bOf4TZAFFyIcNngnV6xK6X4x2ZeXq7vliHkoVkxQ==}
     peerDependencies:
       '@babel/core': ^7.0.0
       '@types/react': '*'
@@ -384,7 +384,7 @@ packages:
       '@babel/runtime': 7.17.8
       '@emotion/babel-plugin': 11.7.2_@babel+core@7.17.9
       '@emotion/cache': 11.7.1
-      '@emotion/serialize': 1.0.2
+      '@emotion/serialize': 1.0.3
       '@emotion/utils': 1.1.0
       '@emotion/weak-memoize': 0.2.5
       '@types/react': 18.0.1
@@ -392,8 +392,8 @@ packages:
       react: 18.0.0
     dev: false
 
-  /@emotion/serialize/1.0.2:
-    resolution: {integrity: sha512-95MgNJ9+/ajxU7QIAruiOAdYNjxZX7G2mhgrtDWswA21VviYIRP1R5QilZ/bDY42xiKsaktP4egJb3QdYQZi1A==}
+  /@emotion/serialize/1.0.3:
+    resolution: {integrity: sha512-2mSSvgLfyV3q+iVh3YWgNlUc2a9ZlDU7DjuP5MjK3AXRR0dYigCrP99aeFtaB2L/hjfEZdSThn5dsZ0ufqbvsA==}
     dependencies:
       '@emotion/hash': 0.8.0
       '@emotion/memoize': 0.7.5
