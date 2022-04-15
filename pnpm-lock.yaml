@@ -18,7 +18,7 @@ importers:
       '@fleur/fleur': 3.1.0
       '@fleur/react': 5.0.2
       '@types/react': 18.0.5
-      '@types/react-dom': 18.0.0
+      '@types/react-dom': 18.0.1
       '@typescript-eslint/eslint-plugin': 5.18.0
       '@typescript-eslint/parser': 5.18.0
       '@vitejs/plugin-react': 1.3.0
@@ -49,7 +49,7 @@ importers:
     devDependencies:
       '@babel/core': 7.17.9
       '@types/react': 18.0.5
-      '@types/react-dom': 18.0.0
+      '@types/react-dom': 18.0.1
       '@typescript-eslint/eslint-plugin': 5.18.0_0dd9be2ba5ed9805045f3fec8be848f5
       '@typescript-eslint/parser': 5.18.0_eslint@8.13.0+typescript@4.6.3
       '@vitejs/plugin-react': 1.3.0
@@ -533,8 +533,8 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
 
-  /@types/react-dom/18.0.0:
-    resolution: {integrity: sha512-49897Y0UiCGmxZqpC8Blrf6meL8QUla6eb+BBhn69dTXlmuOlzkfr7HHY/O8J25e1lTUMs+YYxSlVDAaGHCOLg==}
+  /@types/react-dom/18.0.1:
+    resolution: {integrity: sha512-jCwTXvHtRLiyVvKm9aEdHXs8rflVOGd5Sl913JZrPshfXjn8NYsTNZOz70bCsA31IR0TOqwi3ad+X4tSCBoMTw==}
     dependencies:
       '@types/react': 18.0.5
     dev: true
