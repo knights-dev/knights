@@ -16,7 +16,7 @@ importers:
       '@babel/core': 7.17.9
       '@emotion/react': 11.9.0
       '@fleur/fleur': 3.1.0
-      '@fleur/react': 5.0.2
+      '@fleur/react': 5.0.3
       '@types/react': 18.0.5
       '@types/react-dom': 18.0.1
       '@typescript-eslint/eslint-plugin': 5.19.0
@@ -42,7 +42,7 @@ importers:
     dependencies:
       '@emotion/react': 11.9.0_bdcf54a79e4dd49345c20fa5787df14f
       '@fleur/fleur': 3.1.0
-      '@fleur/react': 5.0.2_4c59d80622a98cebc98f489eacc84cb5
+      '@fleur/react': 5.0.3_4c59d80622a98cebc98f489eacc84cb5
       react: 18.0.0
       react-dom: 18.0.0_react@18.0.0
       rxjs: 7.5.5
@@ -442,8 +442,8 @@ packages:
       invariant: 2.2.4
     dev: false
 
-  /@fleur/react/5.0.2_4c59d80622a98cebc98f489eacc84cb5:
-    resolution: {integrity: sha512-0JOUKdlceRPWNsO1NHqLudJQPqQWVVDCFJwch1U0pFAvdBJDz870W9NjQEbKM01w0On1JAhvuQe5uVhA+CbmdA==}
+  /@fleur/react/5.0.3_4c59d80622a98cebc98f489eacc84cb5:
+    resolution: {integrity: sha512-vKbO+hcXdUzN9e5oF1K1Kz6NtbCuH6Z3S/c+CrSL2GeGsIsqO0jy9DKEOphh2C5HByDLcuKoWYsHja2nrltl2w==}
     peerDependencies:
       '@fleur/fleur': 3.x.x
       react: '>= 16.8.x'
