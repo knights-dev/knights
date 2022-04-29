@@ -17,7 +17,7 @@ importers:
       '@emotion/react': 11.9.0
       '@fleur/fleur': 3.1.0
       '@fleur/react': 5.0.3
-      '@types/react': 18.0.6
+      '@types/react': 18.0.8
       '@types/react-dom': 18.0.2
       '@typescript-eslint/eslint-plugin': 5.20.0
       '@typescript-eslint/parser': 5.20.0
@@ -40,7 +40,7 @@ importers:
       typescript: 4.6.3
       vite: 2.9.5
     dependencies:
-      '@emotion/react': 11.9.0_e7c53be29d0cf33e05dfabbe0af5a24f
+      '@emotion/react': 11.9.0_44693ef3578189797c4833364ce4db62
       '@fleur/fleur': 3.1.0
       '@fleur/react': 5.0.3_4c59d80622a98cebc98f489eacc84cb5
       react: 18.0.0
@@ -48,7 +48,7 @@ importers:
       rxjs: 7.5.5
     devDependencies:
       '@babel/core': 7.17.9
-      '@types/react': 18.0.6
+      '@types/react': 18.0.8
       '@types/react-dom': 18.0.2
       '@typescript-eslint/eslint-plugin': 5.20.0_81f0d1a74f014d44d273bd1612c85fd9
       '@typescript-eslint/parser': 5.20.0_eslint@8.14.0+typescript@4.6.3
@@ -368,7 +368,7 @@ packages:
     resolution: {integrity: sha512-igX9a37DR2ZPGYtV6suZ6whr8pTFtyHL3K/oLUotxpSVO2ASaprmAe2Dkq7tBo7CRY7MMDrAa9nuQP9/YG8FxQ==}
     dev: false
 
-  /@emotion/react/11.9.0_e7c53be29d0cf33e05dfabbe0af5a24f:
+  /@emotion/react/11.9.0_44693ef3578189797c4833364ce4db62:
     resolution: {integrity: sha512-lBVSF5d0ceKtfKCDQJveNAtkC7ayxpVlgOohLgXqRwqWr9bOf4TZAFFyIcNngnV6xK6X4x2ZeXq7vliHkoVkxQ==}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -387,7 +387,7 @@ packages:
       '@emotion/serialize': 1.0.3
       '@emotion/utils': 1.1.0
       '@emotion/weak-memoize': 0.2.5
-      '@types/react': 18.0.6
+      '@types/react': 18.0.8
       hoist-non-react-statics: 3.3.2
       react: 18.0.0
     dev: false
@@ -536,11 +536,11 @@ packages:
   /@types/react-dom/18.0.2:
     resolution: {integrity: sha512-UxeS+Wtj5bvLRREz9tIgsK4ntCuLDo0EcAcACgw3E+9wE8ePDr9uQpq53MfcyxyIS55xJ+0B6mDS8c4qkkHLBg==}
     dependencies:
-      '@types/react': 18.0.6
+      '@types/react': 18.0.8
     dev: true
 
-  /@types/react/18.0.6:
-    resolution: {integrity: sha512-bPqwzJRzKtfI0mVYr5R+1o9BOE8UEXefwc1LwcBtfnaAn6OoqMhLa/91VA8aeWfDPJt1kHvYKI8RHcQybZLHHA==}
+  /@types/react/18.0.8:
+    resolution: {integrity: sha512-+j2hk9BzCOrrOSJASi5XiOyBbERk9jG5O73Ya4M0env5Ixi6vUNli4qy994AINcEF+1IEHISYFfIT4zwr++LKw==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
