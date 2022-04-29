@@ -29,7 +29,7 @@
     "rxjs": "7.5.5"
   },
   "devDependencies": {
-    "@babel/core": "7.17.9",
+    "@babel/core": "7.17.10",
     "@types/react": "18.0.8",
     "@types/react-dom": "18.0.2",
     "@typescript-eslint/eslint-plugin": "5.20.0",
