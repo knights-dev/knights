@@ -30,8 +30,8 @@ importers:
       npm-run-all: 4.1.5
       postcss: 8.4.12
       prettier: 2.6.2
-      react: 18.0.0
-      react-dom: 18.0.0
+      react: 18.1.0
+      react-dom: 18.1.0
       rxjs: 7.5.5
       sass: 1.51.0
       stylelint: 14.7.1
@@ -40,11 +40,11 @@ importers:
       typescript: 4.6.4
       vite: 2.9.6
     dependencies:
-      '@emotion/react': 11.9.0_d3435c476a91caff39a54a504df616a0
+      '@emotion/react': 11.9.0_e307289084c0d0f4b25b50629c6033a9
       '@fleur/fleur': 3.1.0
-      '@fleur/react': 5.0.3_4c59d80622a98cebc98f489eacc84cb5
-      react: 18.0.0
-      react-dom: 18.0.0_react@18.0.0
+      '@fleur/react': 5.0.3_1ce0a0f57e3f18b734c56433274a4384
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
       rxjs: 7.5.5
     devDependencies:
       '@babel/core': 7.17.10
@@ -368,7 +368,7 @@ packages:
     resolution: {integrity: sha512-igX9a37DR2ZPGYtV6suZ6whr8pTFtyHL3K/oLUotxpSVO2ASaprmAe2Dkq7tBo7CRY7MMDrAa9nuQP9/YG8FxQ==}
     dev: false
 
-  /@emotion/react/11.9.0_d3435c476a91caff39a54a504df616a0:
+  /@emotion/react/11.9.0_e307289084c0d0f4b25b50629c6033a9:
     resolution: {integrity: sha512-lBVSF5d0ceKtfKCDQJveNAtkC7ayxpVlgOohLgXqRwqWr9bOf4TZAFFyIcNngnV6xK6X4x2ZeXq7vliHkoVkxQ==}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -389,7 +389,7 @@ packages:
       '@emotion/weak-memoize': 0.2.5
       '@types/react': 18.0.8
       hoist-non-react-statics: 3.3.2
-      react: 18.0.0
+      react: 18.1.0
     dev: false
 
   /@emotion/serialize/1.0.3:
@@ -442,7 +442,7 @@ packages:
       invariant: 2.2.4
     dev: false
 
-  /@fleur/react/5.0.3_4c59d80622a98cebc98f489eacc84cb5:
+  /@fleur/react/5.0.3_1ce0a0f57e3f18b734c56433274a4384:
     resolution: {integrity: sha512-vKbO+hcXdUzN9e5oF1K1Kz6NtbCuH6Z3S/c+CrSL2GeGsIsqO0jy9DKEOphh2C5HByDLcuKoWYsHja2nrltl2w==}
     peerDependencies:
       '@fleur/fleur': 3.x.x
@@ -450,8 +450,8 @@ packages:
       react-dom: '>= 16.8.x'
     dependencies:
       '@fleur/fleur': 3.1.0
-      react: 18.0.0
-      react-dom: 18.0.0_react@18.0.0
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
     dev: false
 
   /@humanwhocodes/config-array/0.9.5:
@@ -2645,14 +2645,14 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /react-dom/18.0.0_react@18.0.0:
-    resolution: {integrity: sha512-XqX7uzmFo0pUceWFCt7Gff6IyIMzFUn7QMZrbrQfGxtaxXZIcGQzoNpRLE3fQLnS4XzLLPMZX2T9TRcSrasicw==}
+  /react-dom/18.1.0_react@18.1.0:
+    resolution: {integrity: sha512-fU1Txz7Budmvamp7bshe4Zi32d0ll7ect+ccxNu9FlObT605GOEB8BfO4tmRJ39R5Zj831VCpvQ05QPBW5yb+w==}
     peerDependencies:
-      react: ^18.0.0
+      react: ^18.1.0
     dependencies:
       loose-envify: 1.4.0
-      react: 18.0.0
-      scheduler: 0.21.0
+      react: 18.1.0
+      scheduler: 0.22.0
     dev: false
 
   /react-is/16.13.1:
@@ -2663,8 +2663,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react/18.0.0:
-    resolution: {integrity: sha512-x+VL6wbT4JRVPm7EGxXhZ8w8LTROaxPXOqhlGyVSrv0sB1jkyFGgXxJ8LVoPRLvPR6/CIZGFmfzqUa2NYeMr2A==}
+  /react/18.1.0:
+    resolution: {integrity: sha512-4oL8ivCz5ZEPyclFQXaNksK3adutVS8l2xzZU0cqEFrE9Sb7fC0EFK5uEk74wIreL1DERyjvsU915j1pcT2uEQ==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
@@ -2814,8 +2814,8 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /scheduler/0.21.0:
-    resolution: {integrity: sha512-1r87x5fz9MXqswA2ERLo0EbOAU74DpIUO090gIasYTqlVoJeMcl+Z1Rg7WHz+qtPujhS/hGIt9kxZOYBV3faRQ==}
+  /scheduler/0.22.0:
+    resolution: {integrity: sha512-6QAm1BgQI88NPYymgGQLCZgvep4FyePDWFpXVK+zNSUgHwlqpJy8VEh8Et0KxTACS4VWwMousBElAZOH9nkkoQ==}
     dependencies:
       loose-envify: 1.4.0
     dev: false
