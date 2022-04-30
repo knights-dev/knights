@@ -36,7 +36,7 @@ importers:
       sass: 1.51.0
       stylelint: 14.8.1
       stylelint-config-standard-scss: 3.0.0
-      typed-scss-modules: 6.2.0
+      typed-scss-modules: 6.3.0
       typescript: 4.6.4
       vite: 2.9.6
     dependencies:
@@ -64,7 +64,7 @@ importers:
       sass: 1.51.0
       stylelint: 14.8.1
       stylelint-config-standard-scss: 3.0.0_postcss@8.4.13+stylelint@14.8.1
-      typed-scss-modules: 6.2.0_sass@1.51.0
+      typed-scss-modules: 6.3.0_sass@1.51.0
       typescript: 4.6.4
       vite: 2.9.6_sass@1.51.0
 
@@ -3233,8 +3233,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /typed-scss-modules/6.2.0_sass@1.51.0:
-    resolution: {integrity: sha512-2OrxgivyfWZvXZ3LkFljBN8x5kzPVI8xKJxEkfNNcEkyPpVp60msl5O44UAYUgLN3O2rO41fWuLJsc2f1NCBmQ==}
+  /typed-scss-modules/6.3.0_sass@1.51.0:
+    resolution: {integrity: sha512-0rwu3LyEtc7g3G7FP1RSxJMcApZ1JgsCkQClZ6+geQpIee1S7SAVIpgKYcbbdbNlhb4c/dAlzKVeLH44Nf1mHg==}
     hasBin: true
     peerDependencies:
       node-sass: ^4.12.0
